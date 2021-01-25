@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Launch - Chimerical Corporation</title>
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/monokai-sublime.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/quill.snow.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inconsolata&amp;family=Roboto+Slab&amp;family=Slabo+27px&amp;family=Sofia&amp;family=Ubuntu+Mono&amp;display=swap">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-quill-editor.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-launch.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-chat.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-chat-list.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <!-- END: Custom CSS-->
+
+    <!-- BEGIN: Firebase JS-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+    <!-- Required for use with reading data from the real-time database -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+
+    <!-- Required for authenticating login information -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+
+    <!-- Required for accessing Firestore info -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+
+    <!-- BEGIN: Firebase JS-->
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDo0WMl_nlAC25xoFcwywdBFkbKdBdUwtI",
+            authDomain: "chimericalcorporate.firebaseapp.com",
+            databaseURL: "https://chimericalcorporate.firebaseio.com",
+            projectId: "chimericalcorporate",
+            storageBucket: "chimericalcorporate.appspot.com",
+            messagingSenderId: "254391940743",
+            appId: "1:254391940743:web:02aedb3e7380bde8e36a22",
+            measurementId: "G-ERTNJQDZ29"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var firebaseRef = firebase.database().ref();
+
+        const auth = firebase.auth();
+
+        // logged in check
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                console.log("User Signed In");
+            } else {
+                // No user is signed in.
+                window.location.href="page-auth-login-v1.html";
+            }
+        });
+        
+    </script>
+    <!-- END: Firebase JS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern content-left-sidebar navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="content-left-sidebar">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow">
+        <div class="navbar-container d-flex content">
+            <div class="bookmark-wrapper d-flex align-items-center">
+                <ul class="nav navbar-nav d-xl-none">
+                    <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav bookmark-icons">
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Launch"><i class="ficon" data-feather="upload-cloud"></i></a></li>
+                    <!--
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-calendar.html" data-toggle="tooltip" data-placement="top" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>
+                    -->
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-todo.html" data-toggle="tooltip" data-placement="top" title="Todo"><i class="ficon" data-feather="check-square"></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link bookmark-star"><i class="ficon text-warning" data-feather="star"></i></a>
+                        <div class="bookmark-input search-input">
+                            <div class="bookmark-input-icon"><i data-feather="search"></i></div>
+                            <input class="form-control input" type="text" placeholder="Bookmark" tabindex="0" data-search="search">
+                            <ul class="search-list search-list-bookmark"></ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav align-items-center ml-auto">
+                <li class="nav-item dropdown dropdown-language"><a class="nav-link dropdown-toggle" id="dropdown-flag" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language">English</span></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="javascript:void(0);" data-language="en"><i class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="javascript:void(0);" data-language="fr"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="javascript:void(0);" data-language="de"><i class="flag-icon flag-icon-de"></i> German</a><a class="dropdown-item" href="javascript:void(0);" data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a></div>
+                </li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style darkMode"><i class="ficon" data-feather="moon"></i></a></li>
+                <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>
+                    <div class="search-input">
+                        <div class="search-input-icon"><i data-feather="search"></i></div>
+                        <input class="form-control input" type="text" placeholder="Explore Vuexy..." tabindex="-1" data-search="search">
+                        <div class="search-input-close"><i data-feather="x"></i></div>
+                        <ul class="search-list search-list-main"></ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i></a>
+                    <!--
+                    <span class="badge badge-pill badge-danger badge-up"></span>
+                    -->
+                    <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                        <li class="dropdown-menu-header">
+                            <div class="dropdown-header d-flex">
+                                <h4 class="notification-title mb-0 mr-auto">Notifications</h4>
+                                <div class="badge badge-pill badge-light-primary">No New</div>
+                            </div>
+                        </li>
+                        <li class="dropdown-menu-footer"><a class="btn btn-primary btn-block" href="javascript:void(0)">Read all notifications</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">Loading...</span><span class="user-status">Loading...</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="app-user-view.html"><i class="mr-50" data-feather="user"></i> View Account</a><a class="dropdown-item" href="app-email.html"><i class="mr-50" data-feather="mail"></i> Demo Pages</a><a class="dropdown-item" href="app-todo.html"><i class="mr-50" data-feather="check-square"></i> Task</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item logout" href="page-auth-login-v1.html"><i class="mr-50" data-feather="power"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="main-search-list-defaultlist d-none">
+        <li class="d-flex align-items-center"><a href="javascript:void(0);">
+                <h6 class="section-label mt-75 mb-0">Files</h6>
+            </a></li>
+    </ul>
+    <ul class="main-search-list-defaultlist-other-list d-none">
+        <li class="auto-suggestion justify-content-between"><a class="d-flex align-items-center justify-content-between w-100 py-50">
+                <div class="d-flex justify-content-start"><span class="mr-75" data-feather="alert-circle"></span><span>No results found.</span></div>
+            </a></li>
+    </ul>
+    <div id='hiddenPage'></div>
+    <!-- END: Header-->
+
+
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="../../../html/ltr/vertical-menu-template/index.html"><span class="brand-logo"></span>
+                        <h2 class="brand-text">Chimerical</h2>
+                    </a></li>
+                <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
+            </ul>
+        </div>
+        <div class="shadow-bottom"></div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span><span class="badge badge-light-warning badge-pill ml-auto mr-1"></span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="dashboard-ecommerce.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Reporting">Reporting</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Apps &amp; Pages</span><i data-feather="more-horizontal"></i>
+                </li>
+                <li class="active nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="upload-cloud"></i><span class="menu-title text-truncate" data-i18n="Launch">Launch</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="app-todo.html"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Todo">Todo</span></a>
+                </li>
+                <!--
+                <li class=" nav-item"><a class="d-flex align-items-center" href="app-calendar.html"><i data-feather="calendar"></i><span class="menu-title text-truncate" data-i18n="Calendar">Calendar</span></a>
+                </li>
+                -->
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="User">User</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="table-users.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                        </li>
+                        <!--
+                        <li><a class="d-flex align-items-center" href="app-user-view.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="View">View</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="app-user-edit.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Edit</span></a>
+                        </li>
+                        -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content email-application">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-area-wrapper">
+            <div class="sidebar-left">
+                <div class="sidebar">
+                    <div class="sidebar-content email-app-sidebar">
+                        <div class="email-app-menu">
+                            <div class="form-group-compose text-center compose-btn">
+                                <button type="button" class="launch-refresh-button btn btn-primary btn-block">
+                                    Refresh
+                                </button>
+                            </div>
+                            <div class="sidebar-menu-list">
+                                <div class="list-group list-group-messages">
+                                    <a href="javascript:void(0)" class="list-group-item list-group-item-action active launch-item" id="launch-reporting">
+                                        <i data-feather="inbox" class="font-medium-3 mr-50"></i>
+                                        <span class="align-middle">Reporting View</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action launch-item" id="launch-phone">
+                                        <i data-feather="phone" class="font-medium-3 mr-50"></i>
+                                        <span class="align-middle">Phone</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action launch-item" id="launch-chat">
+                                        <i data-feather="monitor" class="font-medium-3 mr-50"></i>
+                                        <span class="align-middle">Chat</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action launch-item" id="launch-email">
+                                        <i data-feather="mail" class="font-medium-3 mr-50"></i>
+                                        <span class="align-middle">Email</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="list-group-item list-group-item-action launch-item" id="launch-sms">
+                                        <i data-feather="message-circle" class="font-medium-3 mr-50"></i>
+                                        <span class="align-middle">SMS</span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="list-group-item list-group-item-action launch-item" id="launch-dfo">
+                                        <i data-feather="grid" class="font-medium-3 mr-50"></i>
+                                        <span class="align-middle">DFO</span>
+                                    </a>
+                                </div>
+                                <!-- <hr /> -->
+                                <h6 class="section-label mt-3 mb-1 px-2">Tags</h6>
+                                <div class="list-group list-group-labels">
+                                    <a href="javascript:void(0)" class="list-group-item list-group-item-action"><span class="bullet bullet-sm bullet-success mr-1"></span>Phone</a>
+                                    <a href="javascript:void(0)" class="list-group-item list-group-item-action"><span class="bullet bullet-sm bullet-primary mr-1"></span>Chat</a>
+                                    <a href="javascript:void(0)" class="list-group-item list-group-item-action"><span class="bullet bullet-sm bullet-warning mr-1"></span>Email</a>
+                                    <!--
+                                    <a href="javascript:void(0)" class="list-group-item list-group-item-action"><span class="bullet bullet-sm bullet-danger mr-1"></span>Private</a>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="content-wrapper">
+                    <div class="content-header row">
+                    </div>
+                    <div class="content-body">
+                        <div class="body-content-overlay"></div>
+                        <!-- Email list Area -->
+                        <div class="email-app-list">
+                            <!-- Email search starts -->
+                            <div class="app-fixed-search d-flex align-items-center">
+                                <div class="sidebar-toggle d-block d-lg-none ml-1">
+                                    <i data-feather="menu" class="font-medium-5"></i>
+                                </div>
+                                <div class="d-flex align-content-center justify-content-between w-100">
+                                    <div class="input-group input-group-merge">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i data-feather="search" class="text-muted"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="email-search" placeholder="Search interactions" aria-label="Search..." aria-describedby="email-search" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Email search ends -->
+
+                            <!-- Email actions starts -->
+                            <div class="app-action">
+                                <div class="action-left">
+                                    <div class="custom-control custom-checkbox selectAll">
+                                        <input type="checkbox" class="custom-control-input" id="selectAllCheck" />
+                                        <label class="custom-control-label font-weight-bolder pl-25" for="selectAllCheck">Select All</label>
+                                    </div>
+                                </div>
+                                <div class="action-right">
+                                    <ul class="list-inline m-0">
+                                        <li class="list-inline-item">
+                                            <div class="dropdown">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" id="tag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i data-feather="tag" class="font-medium-2"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tag">
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-success bullet-sm"></span>Phone</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-primary bullet-sm"></span>Chat</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-warning bullet-sm"></span>Email</a>
+                                                    <!--
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-danger bullet-sm"></span>Private</a>
+                                                    -->
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Email actions ends -->
+
+                            <!-- Email list starts -->
+                            <div class="email-user-list">
+                                <ul class="email-media-list">
+                                    <li class="media mail-read">
+                                        <div class="media-left pr-50">
+                                            <div class="avatar">
+                                                <img src="../../../app-assets/images/portrait/small/avatar.jpg" alt="avatar img holder" />
+                                            </div>
+                                            <div class="user-action">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1" />
+                                                    <label class="custom-control-label" for="customCheck1"></label>
+                                                </div>
+                                                <span class="email-favorite"><i data-feather="star"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="mail-details">
+                                                <div class="mail-items">
+                                                    <h5 class="mb-25">Phone Call Example</h5>
+                                                    <span class="text-truncate">Call on 1/20/2021 </span>
+                                                </div>
+                                                <div class="mail-meta-item">
+                                                    <span class="mr-50 bullet bullet-success bullet-sm"></span>
+                                                    <span class="mail-date">4:13 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="mail-message">
+                                                <p class="text-truncate mb-0">
+                                                    The idea for this area is to provide simple details related to interactions they just ran.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="no-results">
+                                    <h5>No Items Found</h5>
+                                </div>
+                            </div>
+                            <!-- Email list ends -->
+                        </div>
+                        <!--/ Email list Area -->
+                        <!-- Detailed Email View -->
+                        <div class="phone-app-details">
+                            <!-- Detailed Email Header starts -->
+                            <div class="email-detail-header">
+                                <div class="email-header-left d-flex align-items-center">
+                                    <span class="go-back mr-1"><i data-feather="chevron-left" class="font-medium-4"></i></span>
+                                    <h4 class="email-subject mb-0">Launch Phone Call</h4>
+                                </div>
+                                <div class="email-header-right ml-2 pl-1">
+                                    <ul class="list-inline m-0">
+                                        <li class="list-inline-item">
+                                            <div class="dropdown no-arrow dropleft">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i data-feather="tag" class="font-medium-2"></i>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="tag">
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-success bullet-sm"></span>Phone</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-primary bullet-sm"></span>Chat</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-warning bullet-sm"></span>Email</a>
+                                                    <!--
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-danger bullet-sm"></span>Private</a>
+                                                    -->
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Detailed Email Header ends -->
+
+                            <!-- Detailed Email Content starts -->
+                            <div class="email-scroll-area">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="email-label">
+                                            <span class="mail-label badge badge-pill badge-light-success">Phone</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header email-detail-head">
+                                                <div class="user-details d-flex justify-content-between align-items-center flex-wrap">
+                                                    <div class="avatar mr-75">
+                                                    </div>
+                                                    <div class="mail-items">
+                                                        <h5 class="mb-0">Phone Call</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="mail-meta-item d-flex align-items-center">
+                                                    <small class="mail-date-time text-muted">29 Aug, 2020, 14:58</small>
+                                                </div>
+                                            </div>
+                                            <div class="card-body mail-message-wrapper pt-2">
+                                                <form class="form form-vertical">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="first-name-icon">First Name</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                                <circle cx="12" cy="7" r="4"></circle>
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <input type="text" id="first-name-icon" class="form-control" name="fname-icon" placeholder="First Name">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="email-id-icon">Phone</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                                                                <polyline points="22,6 12,13 2,6"></polyline>
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <input type="text" id="phone-id-icon" class="form-control" name="email-id-icon" placeholder="Phone Number">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="contact-reason-id-icon">Contact Reason</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                                                                <polyline points="22,6 12,13 2,6"></polyline>
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <input type="email" id="contact-reason-id-icon" class="form-control" name="email-id-icon" placeholder="Contact Reason">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="customSelect">Business Unit</label>
+                                                                <select class="custom-select launch-phone-select" id="launch-phone-select">
+                                                                    <optgroup label="Business Units" class="cxoneOpt" data-select2-id="196" placeholder="Select a BU...">
+                                                                    </optgroup>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <button type="reset" class="btn btn-primary mr-1 waves-effect waves-float waves-light launch-phone-submit">Submit</button>
+                                                            <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <h5 class="mb-0">
+                                                        Click here for
+                                                        <a href="javascript:void(0);">Documentation</a>
+                                                        on how to use this feature.
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Detailed Phone Content ends -->
+                        </div>
+                        <!--/ Detailed Email View -->
+
+                        <!-- Detailed Chat View -->
+                        <div class="chat-app-details">
+                            <!-- Detailed Email Header starts -->
+                            <div class="email-detail-header">
+                                <div class="email-header-left d-flex align-items-center">
+                                    <span class="go-back mr-1"><i data-feather="chevron-left" class="font-medium-4"></i></span>
+                                    <h4 class="email-subject mb-0">Launch Chat</h4>
+                                </div>
+                                <div class="email-header-right ml-2 pl-1">
+                                    <ul class="list-inline m-0">
+                                        <li class="list-inline-item">
+                                            <div class="dropdown no-arrow dropleft">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i data-feather="tag" class="font-medium-2"></i>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="tag">
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-success bullet-sm"></span>Phone</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-primary bullet-sm"></span>Chat</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-warning bullet-sm"></span>Email</a>
+                                                    <!--
+                                                    <a href="javascript:void(0);" class="dropdown-item"><span class="mr-50 bullet bullet-danger bullet-sm"></span>Private</a>
+                                                    -->
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Detailed Chat Header ends -->
+
+                            <!-- Detailed Chat Content starts -->
+                            <div class="email-scroll-area">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="email-label">
+                                            <span class="mail-label badge badge-pill badge-light-primary">Chat</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header email-detail-head">
+                                                <div class="user-details d-flex justify-content-between align-items-center flex-wrap">
+                                                    <div class="avatar mr-75"></div>
+                                                    <div class="mail-items">
+                                                        <h5 class="mb-0">Fill In The Pre-Chat Form</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="mail-meta-item d-flex align-items-center">
+                                                    <small class="mail-date-time text-muted currentTime"></small>
+                                                </div>
+                                            </div>
+                                            <div class="card-body mail-message-wrapper pt-2">
+                                                <form class="form form-vertical">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="first-name-icon">First Name</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                                                <circle cx="12" cy="7" r="4"></circle>
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <input type="text" id="first-name-icon" class="form-control" name="fname-icon" placeholder="First Name">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="email-id-icon">Email</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                                                                <polyline points="22,6 12,13 2,6"></polyline>
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <input type="email" id="email-id-icon" class="form-control" name="email-id-icon" placeholder="Email">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="contact-reason-id-icon">Contact Reason</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                                                                <polyline points="22,6 12,13 2,6"></polyline>
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <input type="email" id="email-id-icon" class="form-control" name="email-id-icon" placeholder="Contact Reason">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="customSelect">Business Unit</label>
+                                                                <select class="custom-select" id="chatSelect">
+                                                                    <optgroup label="Business Units" class="cxoneOpt" data-select2-id="196" placeholder="Select a BU...">
+                                                                    </optgroup>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <button type="button" class="btn btn-primary mr-1 waves-effect waves-float waves-light chat-launch-btn">Submit</button>
+                                                            <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <h5 class="mb-0">
+                                                        Click here for
+                                                        <a href="javascript:void(0);">Documentation</a>
+                                                        on how to use this feature.
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Detailed Chat Content ends -->
+                        </div>
+                        <!--/ Detailed Chat View -->
+                        <!-- Pop Up Chat Modal -->
+                        <div class="modal modal-sticky" id="pop-up-chat">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content p-0 card chat-widget">
+                                    <div class="modal-header card-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar mr-2">
+                                                <img src="../../../app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="34" height="34">
+                                                <span class="avatar-status-online"></span>
+                                            </div>
+                                            <h5 class="mb-0">Carrie Hawkins</h5>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical font-medium-3 cursor-pointer">
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="12" cy="5" r="1"></circle>
+                                            <circle cx="12" cy="19" r="1"></circle>
+                                        </svg>
+                                    </div>
+                                    <!-- User Chat messages -->
+                                    <section class="chat-app-window">
+                                        <div class="user-chats ps ps--active-y">
+                                            <div class="chats">
+
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: -500px;">
+                                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                            </div>
+                                            <div class="ps__rail-y" style="top: 500px; height: 390px; right: 0px;">
+                                                <div class="ps__thumb-y" tabindex="0" style="top: 186px; height: 144px;"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Submit Chat form -->
+                                        <form class="chat-app-form" action="javascript:void(0);" onsubmit="enterChat();">
+                                            <div class="input-group input-group-merge mr-50 w-75 form-send-message">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <label for="attach-doc" class="attachment-icon mb-0">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image cursor-pointer lighten-2 text-secondary">
+                                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                                <polyline points="21 15 16 10 5 21"></polyline>
+                                                            </svg>
+                                                            <input type="file" id="attach-doc" hidden=""> </label></span>
+                                                </div>
+                                                <input type="text" class="form-control message" placeholder="Type your message">
+                                            </div>
+                                            <button type="button" class="btn btn-primary send waves-effect waves-float waves-light" onclick="enterChat();">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send d-lg-none">
+                                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                                </svg>
+                                                <span class="d-none text-nowrap d-lg-block">Send</span>
+                                            </button>
+                                        </form>
+                                        <!--/ Submit Chat form -->
+                                    </section>
+                                    <!-- User Chat messages -->
+                                </div>
+                            </div>
+                            <!--/ Pop Up Chat Modal -->
+
+                            <!-- compose email -->
+                            <div class="modal modal-sticky" id="compose-mail">
+                                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                    <div class="modal-content p-0">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Compose Mail</h5>
+                                            <div class="modal-actions">
+                                                <a href="javascript:void(0);" class="text-body mr-75"><i data-feather="minus"></i></a>
+                                                <a href="javascript:void(0);" class="text-body mr-75"><i data-feather="maximize-2"></i></a>
+                                                <a class="text-body" href="javascript:void(0);" data-dismiss="modal" aria-label="Close"><i data-feather="x"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body flex-grow-1 p-0">
+                                            <form class="compose-form">
+                                                <div class="compose-mail-form-field select2-primary">
+                                                    <label for="email-to" class="form-label">To: </label>
+                                                    <div class="flex-grow-1">
+                                                        <select class="select2 form-control w-100" id="email-to" multiple>
+                                                            <option data-avatar="1-small.png" value="Jane Foster">Jane Foster</option>
+                                                            <option data-avatar="3-small.png" value="Donna Frank">Donna Frank</option>
+                                                            <option data-avatar="5-small.png" value="Gabrielle Robertson">Gabrielle Robertson</option>
+                                                            <option data-avatar="7-small.png" value="Lori Spears">Lori Spears</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <a class="toggle-cc text-body mr-1" href="javascript:void(0);">Cc</a>
+                                                        <a class="toggle-bcc text-body" href="javascript:void(0);">Bcc</a>
+                                                    </div>
+                                                </div>
+                                                <div class="compose-mail-form-field cc-wrapper">
+                                                    <label for="emailCC">Cc: </label>
+                                                    <div class="flex-grow-1">
+                                                        <!-- <input type="text" id="emailCC" class="form-control" placeholder="CC"/> -->
+                                                        <select class="select2 form-control w-100" id="emailCC" multiple>
+                                                            <option data-avatar="1-small.png" value="Jane Foster">Jane Foster</option>
+                                                            <option data-avatar="3-small.png" value="Donna Frank">Donna Frank</option>
+                                                            <option data-avatar="5-small.png" value="Gabrielle Robertson">Gabrielle Robertson</option>
+                                                            <option data-avatar="7-small.png" value="Lori Spears">Lori Spears</option>
+                                                        </select>
+                                                    </div>
+                                                    <a class="text-body toggle-cc" href="javascript:void(0);"><i data-feather="x"></i></a>
+                                                </div>
+                                                <div class="compose-mail-form-field bcc-wrapper">
+                                                    <label for="emailBCC">Bcc: </label>
+                                                    <div class="flex-grow-1">
+                                                        <!-- <input type="text" id="emailBCC" class="form-control" placeholder="BCC"/> -->
+                                                        <select class="select2 form-control w-100" id="emailBCC" multiple>
+                                                            <option data-avatar="1-small.png" value="Jane Foster">Jane Foster</option>
+                                                            <option data-avatar="3-small.png" value="Donna Frank">Donna Frank</option>
+                                                            <option data-avatar="5-small.png" value="Gabrielle Robertson">Gabrielle Robertson</option>
+                                                            <option data-avatar="7-small.png" value="Lori Spears">Lori Spears</option>
+                                                        </select>
+                                                    </div>
+                                                    <a class="text-body toggle-bcc" href="javascript:void(0);"><i data-feather="x"></i></a>
+                                                </div>
+                                                <div class="compose-mail-form-field">
+                                                    <label for="emailSubject">Subject: </label>
+                                                    <input type="text" id="emailSubject" class="form-control" placeholder="Subject" name="emailSubject" />
+                                                </div>
+                                                <div id="message-editor">
+                                                    <div class="editor" data-placeholder="Type message..."></div>
+                                                    <div class="compose-editor-toolbar">
+                                                        <span class="ql-formats mr-0">
+                                                            <select class="ql-font">
+                                                                <option selected>Sailec Light</option>
+                                                                <option value="sofia">Sofia Pro</option>
+                                                                <option value="slabo">Slabo 27px</option>
+                                                                <option value="roboto">Roboto Slab</option>
+                                                                <option value="inconsolata">Inconsolata</option>
+                                                                <option value="ubuntu">Ubuntu Mono</option>
+                                                            </select>
+                                                        </span>
+                                                        <span class="ql-formats mr-0">
+                                                            <button class="ql-bold"></button>
+                                                            <button class="ql-italic"></button>
+                                                            <button class="ql-underline"></button>
+                                                            <button class="ql-link"></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="compose-footer-wrapper">
+                                                    <div class="btn-wrapper d-flex align-items-center">
+                                                        <div class="btn-group dropup mr-1">
+                                                            <button type="button" class="btn btn-primary launch-email-submit" onclick="mailTo();">Send</button>
+                                                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                                                                <span class="sr-only">Toggle Dropdown</span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="javascript:void(0);"> Schedule Send</a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- add attachment -->
+                                                        <div class="email-attachement">
+                                                            <label for="file-input">
+                                                                <i data-feather="paperclip" width="17" height="17" class="ml-50"></i>
+                                                            </label>
+
+                                                            <input id="file-input" type="file" class="d-none" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="footer-action d-flex align-items-center">
+                                                        <div class="dropup d-inline-block">
+                                                            <i class="font-medium-2 cursor-pointer mr-50" data-feather="more-vertical" role="button" id="composeActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            </i>
+                                                            <div class="dropdown-menu" aria-labelledby="composeActions">
+                                                                <a class="dropdown-item" href="javascript:void(0);">
+                                                                    <span class="align-middle">Add Label</span>
+                                                                </a>
+                                                                <a class="dropdown-item" href="javascript:void(0);">
+                                                                    <span class="align-middle">Plain text mode</span>
+                                                                </a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <a class="dropdown-item" href="javascript:void(0);">
+                                                                    <span class="align-middle">Print</span>
+                                                                </a>
+                                                                <a class="dropdown-item" href="javascript:void(0);">
+                                                                    <span class="align-middle">Check Spelling</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <i data-feather="trash" class="font-medium-2 cursor-pointer" data-dismiss="modal"></i>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ compose email -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Content-->
+
+        <div class="sidenav-overlay"></div>
+        <div class="drag-target"></div>
+
+        <!-- BEGIN: Footer-->
+        <footer class="footer footer-static footer-light"></footer>
+        <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+        <!-- END: Footer-->
+
+
+        <!-- BEGIN: Vendor JS-->
+        <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+        <!-- BEGIN Vendor JS-->
+
+        <!-- BEGIN: Page Vendor JS-->
+        <script src="../../../app-assets/vendors/js/editors/quill/katex.min.js"></script>
+        <script src="../../../app-assets/vendors/js/editors/quill/highlight.min.js"></script>
+        <script src="../../../app-assets/vendors/js/editors/quill/quill.min.js"></script>
+        <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
+        <script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+        <script src="../../../app-assets/js/scripts/forms/select/form-select2.js"></script>
+        <!-- END: Page Vendor JS-->
+
+        <!-- BEGIN: Theme JS-->
+        <script src="../../../app-assets/js/core/app-menu.js"></script>
+        <script src="../../../app-assets/js/core/app.js"></script>
+
+        <!-- END: Theme JS-->
+
+        <!-- BEGIN: Page JS-->
+        <script src="../../../app-assets/js/scripts/pages/app-launch.js"></script>
+        <script src="../../../app-assets/js/scripts/pages/app-chat.js"></script>
+        <!-- END: Page JS-->
+
+        <script>
+            $(window).on('load', function() {
+                if (feather) {
+                    feather.replace({
+                        width: 14,
+                        height: 14
+                    });
+                }
+            })
+
+        </script>
+</body>
+<!-- END: Body-->
+
+</html>

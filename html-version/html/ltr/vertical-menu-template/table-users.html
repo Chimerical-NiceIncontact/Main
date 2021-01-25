@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>User Table - Chimerical Corporation</title>
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <!-- END: Custom CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <!-- END: Custom CSS-->
+
+    <!-- BEGIN: Firebase JS-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+    <!-- Required for use with reading data from the real-time database -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+
+    <!-- Required for authenticating login information -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+
+    <!-- Required for accessing Firestore info -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+
+    <!-- BEGIN: Firebase JS-->
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDo0WMl_nlAC25xoFcwywdBFkbKdBdUwtI",
+            authDomain: "chimericalcorporate.firebaseapp.com",
+            databaseURL: "https://chimericalcorporate.firebaseio.com",
+            projectId: "chimericalcorporate",
+            storageBucket: "chimericalcorporate.appspot.com",
+            messagingSenderId: "254391940743",
+            appId: "1:254391940743:web:02aedb3e7380bde8e36a22",
+            measurementId: "G-ERTNJQDZ29"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var firebaseRef = firebase.database().ref();
+
+        const auth = firebase.auth();
+
+    </script>
+    <!-- END: Firebase JS-->
+
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow">
+        <div class="navbar-container d-flex content">
+            <div class="bookmark-wrapper d-flex align-items-center">
+                <ul class="nav navbar-nav d-xl-none">
+                    <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav bookmark-icons">
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-launch.html" data-toggle="tooltip" data-placement="top" title="Launch"><i class="ficon" data-feather="upload-cloud"></i></a></li>
+                    <!-- Calendar Icon Removal Top Bar
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-calendar.html" data-toggle="tooltip" data-placement="top" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>
+                    -->
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-todo.html" data-toggle="tooltip" data-placement="top" title="Todo"><i class="ficon" data-feather="check-square"></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link bookmark-star"><i class="ficon text-warning" data-feather="star"></i></a>
+                        <div class="bookmark-input search-input">
+                            <div class="bookmark-input-icon"><i data-feather="search"></i></div>
+                            <input class="form-control input" type="text" placeholder="Bookmark" tabindex="0" data-search="search">
+                            <ul class="search-list search-list-bookmark"></ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav align-items-center ml-auto">
+                <li class="nav-item dropdown dropdown-language"><a class="nav-link dropdown-toggle" id="dropdown-flag" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language">English</span></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="javascript:void(0);" data-language="en"><i class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="javascript:void(0);" data-language="fr"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="javascript:void(0);" data-language="de"><i class="flag-icon flag-icon-de"></i> German</a><a class="dropdown-item" href="javascript:void(0);" data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a></div>
+                </li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
+                <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>
+                    <div class="search-input">
+                        <div class="search-input-icon"><i data-feather="search"></i></div>
+                        <input class="form-control input" type="text" placeholder="Explore Vuexy..." tabindex="-1" data-search="search">
+                        <div class="search-input-close"><i data-feather="x"></i></div>
+                        <ul class="search-list search-list-main"></ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i>
+                        <!-- Red Badge Removal
+                    <span class="badge badge-pill badge-danger badge-up"></span>
+                    -->
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                        <li class="dropdown-menu-header">
+                            <div class="dropdown-header d-flex">
+                                <h4 class="notification-title mb-0 mr-auto">Notifications</h4>
+                                <div class="badge badge-pill badge-light-primary">No New</div>
+                            </div>
+                        </li>
+                        <li class="dropdown-menu-footer"><a class="btn btn-primary btn-block" href="javascript:void(0)">Read all notifications</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">Loading...</span><span class="user-status">Loading...</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="app-user-view.html"><i class="mr-50" data-feather="user"></i> View Account</a><a class="dropdown-item" href="app-email.html"><i class="mr-50" data-feather="mail"></i> Demo Pages</a><a class="dropdown-item" href="app-todo.html"><i class="mr-50" data-feather="check-square"></i> Todo</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="page-auth-login-v2.html"><i class="mr-50" data-feather="power"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="main-search-list-defaultlist d-none">
+        <li class="d-flex align-items-center"><a href="javascript:void(0);">
+                <h6 class="section-label mt-75 mb-0">Files</h6>
+            </a></li>
+    </ul>
+    <ul class="main-search-list-defaultlist-other-list d-none">
+        <li class="auto-suggestion justify-content-between"><a class="d-flex align-items-center justify-content-between w-100 py-50">
+                <div class="d-flex justify-content-start"><span class="mr-75" data-feather="alert-circle"></span><span>No results found.</span></div>
+            </a></li>
+    </ul>
+    <!-- END: Header-->
+
+
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="../../../html/ltr/vertical-menu-template/index.html"><span class="brand-logo">
+                        </span>
+                        <h2 class="brand-text">Chimerical</h2>
+                    </a></li>
+                <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
+            </ul>
+        </div>
+        <div class="shadow-bottom"></div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span><span class="badge badge-light-warning badge-pill ml-auto mr-1"></span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="dashboard-analytics.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Reporting">Reporting</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Apps &amp; Pages</span><i data-feather="more-horizontal"></i>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="app-launch.html"><i data-feather="upload-cloud"></i><span class="menu-title text-truncate" data-i18n="Launch">Launch</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="app-todo.html"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Todo">Todo</span></a>
+                </li>
+                <!-- Calendar Removal
+                <li class=" nav-item"><a class="d-flex align-items-center" href="app-calendar.html"><i data-feather="calendar"></i><span class="menu-title text-truncate" data-i18n="Calendar">Calendar</span></a>
+                </li>
+                -->
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="User">User</span></a>
+                    <ul class="menu-content">
+                        <li class="active"><a class="d-flex align-items-center active" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
+                        </li>
+                        <!-- View & Edit Removal
+                        <li><a class="d-flex align-items-center" href="app-user-view.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="View">View</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="app-user-edit.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Edit</span></a>
+                        </li>
+                        -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                    <div class="row breadcrumbs-top">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-left mb-0">User List</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-body">
+                <!-- Table Hoverable Rows start -->
+                <div class="row" id="table-hover-row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="dt-buttons d-inline-flex"> <button class="dt-button buttons-collection btn btn-outline-secondary dropdown-toggle mr-2" tabindex="0" aria-controls="DataTables_Table_0" type="button" aria-haspopup="true"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share font-small-4 mr-50">
+                                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                                <polyline points="16 6 12 2 8 6"></polyline>
+                                                <line x1="12" y1="2" x2="12" y2="15"></line>
+                                            </svg>Export</span></button> <button class="dt-new-user create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-toggle="modal" data-target="#modals-slide-in"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-50 font-small-4">
+                                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            </svg>Add New Record</span></button> </div>
+                            </div>
+                            <div class="table-responsive">
+
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-user-list">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Table Hoverable Rows end -->
+                <!-- Modal to add new record -->
+                <div class="modal modal-slide-in fade" id="user-modal">
+                    <div class="modal-dialog sidebar-sm">
+                        <form class="add-new-record modal-content pt-0">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                            <div class="modal-header mb-1">
+                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            </div>
+                            <div class="modal-body flex-grow-1">
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
+                                    <input type="text" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="John Doe" aria-label="John Doe" name="changedName" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-username">Username</label>
+                                    <input type="text" class="form-control dt-username" id="basic-icon-default-username" placeholder="Doeanator" aria-label="John Doe" name="changedUsername" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-email">Email</label>
+                                    <input type="text" id="basic-icon-default-email" class="form-control dt-email" placeholder="john.doe@example.com" aria-label="john.doe@niceincontact.com" name="changedEmail" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-phone">Phone</label>
+                                    <input type="text" id="basic-icon-default-phone" class="form-control dt-phone" placeholder="(678) 575-4668" aria-label="Sales Engineer" name="changedPhone" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-post">Role</label>
+                                    <input type="text" id="basic-icon-default-post" class="form-control dt-role" placeholder="Sales Engineer" aria-label="Sales Engineer" name="changedRole" />
+                                </div>
+                                <hr>
+                                <label class="form-label" style="font-weight: bold" for="basic-icon-default-post">Agent ID's</label>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-post">C35</label>
+                                    <input type="text" id="basic-icon-default-post" class="form-control dt-c35" placeholder="C35" aria-label="Sales Engineer" name="changedAgentC35" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-post">C32</label>
+                                    <input type="text" id="basic-icon-default-post" class="form-control dt-c32" placeholder="C32" aria-label="Sales Engineer" name="changedAgentC32" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-post">B32</label>
+                                    <input type="text" id="basic-icon-default-post" class="form-control dt-b32" placeholder="B32" aria-label="Sales Engineer" name="changedAgentB32" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-icon-default-post">B2</label>
+                                    <input type="text" id="basic-icon-default-post" class="form-control dt-b2" placeholder="B2" aria-label="Sales Engineer" name="changedAgentB2" />
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-switch switch-lg custom-switch-success mr-2 mb-1">
+                                        <p class="mb-0">Status</p>
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch100" name="changedStatus">
+                                        <label class="custom-control-label" for="customSwitch100">
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary user-submit mr-1">Submit</button>
+                                <button type="reset" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal fade modal-danger" id="acceptance-button" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none; padding-right: 17px;" aria-modal="true" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Please Confirm Changes</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you wish to make these changes?</p>
+                                <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                    <i class="align-middle" data-feather="info"></i>
+                                    <span><strong>NOTE:</strong> this action cannot be undone, once accepted the database is updated.</span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-accept btn-primary waves-effect waves-float waves-light" data-dismiss="modal">Accept</button>
+                                <button type="button" class="btn btn-reject btn-outline-warning waves-effect waves-float waves-light" data-dismiss="modal">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light">
+    </footer>
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+    <!-- END: Footer-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="../../../app-assets/vendors/js/tables/bootstrap/tables-user.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="../../../app-assets/js/core/app-menu.js"></script>
+    <script src="../../../app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="../../../app-assets/js/scripts/tables/table-datatables-basic.min.js"></script>
+    <!-- END: Page JS-->
+
+    <script>
+        $(window).on('load', function() {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+
+    </script>
+</body>
+<!-- END: Body-->
+
+</html>

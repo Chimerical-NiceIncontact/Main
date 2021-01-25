@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Layout blank - Vuexy - Bootstrap HTML admin template</title>
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/wizard/bs-stepper.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-wizard.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/Custom/custom-pages-auth.css">
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <div class="row">
+                    <div class="auth-wrapper auth-v1 px-2">
+                        <div class="auth-inner py-2">
+                            <!-- Register v1 -->
+                            <div class="card mb-0 mx-auto" >
+                                <div class="card-body">
+                                    <div class="col-12 p-4">
+                                        <section class="vertical-wizard">
+                                            <div class="bs-stepper vertical vertical-wizard-example">
+                                                <div class="bs-stepper-header">
+                                                    <div class="step active" data-target="#account-details-vertical">
+                                                        <button type="button" class="step-trigger" aria-selected="true">
+                                                            <span class="bs-stepper-box">1</span>
+                                                            <span class="bs-stepper-label">
+                                                                <span class="bs-stepper-title">Account Details</span>
+                                                                <span class="bs-stepper-subtitle">Setup Account Details</span>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="step" data-target="#personal-info-vertical">
+                                                        <button type="button" class="step-trigger" aria-selected="false">
+                                                            <span class="bs-stepper-box">2</span>
+                                                            <span class="bs-stepper-label">
+                                                                <span class="bs-stepper-title">Personal Info</span>
+                                                                <span class="bs-stepper-subtitle">Add Personal Info</span>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="step" data-target="#address-step-vertical">
+                                                        <button type="button" class="step-trigger" aria-selected="false">
+                                                            <span class="bs-stepper-box">3</span>
+                                                            <span class="bs-stepper-label">
+                                                                <span class="bs-stepper-title">Address</span>
+                                                                <span class="bs-stepper-subtitle">Add Address</span>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="step" data-target="#social-links-vertical">
+                                                        <button type="button" class="step-trigger" aria-selected="false">
+                                                            <span class="bs-stepper-box">4</span>
+                                                            <span class="bs-stepper-label">
+                                                                <span class="bs-stepper-title">Social Links</span>
+                                                                <span class="bs-stepper-subtitle">Add Social Links</span>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="bs-stepper-content">
+                                                    <div id="account-details-vertical" class="content active dstepper-block">
+                                                        <div class="content-header">
+                                                            <h5 class="mb-0">Account Details</h5>
+                                                            <small class="text-muted">Enter Your Account Details.</small>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-username">Username</label>
+                                                                <input type="text" id="vertical-username" class="form-control" placeholder="johndoe">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-email">Email</label>
+                                                                <input type="email" id="vertical-email" class="form-control" placeholder="john.doe@email.com" aria-label="john.doe">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group form-password-toggle col-md-6">
+                                                                <label class="form-label" for="vertical-password">Password</label>
+                                                                <input type="password" id="vertical-password" class="form-control" placeholder="············">
+                                                            </div>
+                                                            <div class="form-group form-password-toggle col-md-6">
+                                                                <label class="form-label" for="vertical-confirm-password">Confirm Password</label>
+                                                                <input type="password" id="vertical-confirm-password" class="form-control" placeholder="············">
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <button class="btn btn-outline-secondary btn-prev waves-effect" disabled="">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle mr-sm-25 mr-0">
+                                                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                                                </svg>
+                                                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                                            </button>
+                                                            <button class="btn btn-primary btn-next waves-effect waves-float waves-light">
+                                                                <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ml-sm-25 ml-0">
+                                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="personal-info-vertical" class="content">
+                                                        <div class="content-header">
+                                                            <h5 class="mb-0">Personal Info</h5>
+                                                            <small>Enter Your Personal Info.</small>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-first-name">First Name</label>
+                                                                <input type="text" id="vertical-first-name" class="form-control" placeholder="John">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-last-name">Last Name</label>
+                                                                <input type="text" id="vertical-last-name" class="form-control" placeholder="Doe">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-country">Country</label>
+                                                                <div class="position-relative"><select class="select2 w-100 select2-hidden-accessible" id="vertical-country" data-select2-id="vertical-country" tabindex="-1" aria-hidden="true">
+                                                                        <option label=" " data-select2-id="5"></option>
+                                                                        <option>UK</option>
+                                                                        <option>USA</option>
+                                                                        <option>Spain</option>
+                                                                        <option>France</option>
+                                                                        <option>Italy</option>
+                                                                        <option>Australia</option>
+                                                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="4" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-vertical-country-container"><span class="select2-selection__rendered" id="select2-vertical-country-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">Select value</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-language">Language</label>
+                                                                <div class="position-relative"><select class="select2 w-100 select2-hidden-accessible" id="vertical-language" multiple="" data-select2-id="vertical-language" tabindex="-1" aria-hidden="true">
+                                                                        <option>English</option>
+                                                                        <option>French</option>
+                                                                        <option>Spanish</option>
+                                                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="6" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false">
+                                                                                <ul class="select2-selection__rendered">
+                                                                                    <li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="Select value" style="width: 0px;"></li>
+                                                                                </ul>
+                                                                            </span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <button class="btn btn-primary btn-prev waves-effect waves-float waves-light">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle mr-sm-25 mr-0">
+                                                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                                                </svg>
+                                                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                                            </button>
+                                                            <button class="btn btn-primary btn-next waves-effect waves-float waves-light">
+                                                                <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ml-sm-25 ml-0">
+                                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="address-step-vertical" class="content">
+                                                        <div class="content-header">
+                                                            <h5 class="mb-0">Address</h5>
+                                                            <small>Enter Your Address.</small>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-address">Address</label>
+                                                                <input type="text" id="vertical-address" class="form-control" placeholder="98  Borough bridge Road, Birmingham">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-landmark">Landmark</label>
+                                                                <input type="text" id="vertical-landmark" class="form-control" placeholder="Borough bridge">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="pincode2">Pincode</label>
+                                                                <input type="text" id="pincode2" class="form-control" placeholder="658921">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="city2">City</label>
+                                                                <input type="text" id="city2" class="form-control" placeholder="Birmingham">
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <button class="btn btn-primary btn-prev waves-effect waves-float waves-light">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle mr-sm-25 mr-0">
+                                                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                                                </svg>
+                                                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                                            </button>
+                                                            <button class="btn btn-primary btn-next waves-effect waves-float waves-light">
+                                                                <span class="align-middle d-sm-inline-block d-none">Next</span>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ml-sm-25 ml-0">
+                                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="social-links-vertical" class="content">
+                                                        <div class="content-header">
+                                                            <h5 class="mb-0">Social Links</h5>
+                                                            <small>Enter Your Social Links.</small>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-twitter">Twitter</label>
+                                                                <input type="text" id="vertical-twitter" class="form-control" placeholder="https://twitter.com/abc">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-facebook">Facebook</label>
+                                                                <input type="text" id="vertical-facebook" class="form-control" placeholder="https://facebook.com/abc">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-google">Google+</label>
+                                                                <input type="text" id="vertical-google" class="form-control" placeholder="https://plus.google.com/abc">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="form-label" for="vertical-linkedin">Linkedin</label>
+                                                                <input type="text" id="vertical-linkedin" class="form-control" placeholder="https://linkedin.com/abc">
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <button class="btn btn-primary btn-prev waves-effect waves-float waves-light">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle mr-sm-25 mr-0">
+                                                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                                                </svg>
+                                                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                                            </button>
+                                                            <button class="btn btn-success btn-submit waves-effect waves-float waves-light">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END: Content-->
+
+
+        <!-- BEGIN: Vendor JS-->
+        <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+        <!-- BEGIN Vendor JS-->
+
+        <!-- BEGIN: Page Vendor JS-->
+        <!-- END: Page Vendor JS-->
+
+        <!-- BEGIN: Theme JS-->
+        <script src="../../../app-assets/js/core/app-menu.js"></script>
+        <script src="../../../app-assets/js/core/app.js"></script>
+        <!-- END: Theme JS-->
+
+        <!-- BEGIN: Page JS-->
+        <!-- END: Page JS-->
+
+        <script>
+            $(window).on('load', function() {
+                if (feather) {
+                    feather.replace({
+                        width: 14,
+                        height: 14
+                    });
+                }
+            })
+
+        </script>
+</body>
+<!-- END: Body-->
+
+</html>

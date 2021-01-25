@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Launch Application - Chimerical</title>
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/monokai-sublime.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/editors/quill/quill.snow.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/wizard.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/wizard.min.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-email.css">
+    
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dashboard-ecommerce.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <script id="notification_data">
+        function refreshButton() {
+            window.location = window.location
+        };
+
+    </script>
+    <!-- END: Custom CSS-->
+
+    <!-- BEGIN: Firebase JS-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+    <!-- Required for use with reading data from the real-time database -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+
+    <!-- Required for authenticating login information -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+
+    <!-- Required for accessing Firestore info -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+
+    <!-- BEGIN: Firebase JS-->
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDo0WMl_nlAC25xoFcwywdBFkbKdBdUwtI",
+            authDomain: "chimericalcorporate.firebaseapp.com",
+            databaseURL: "https://chimericalcorporate.firebaseio.com",
+            projectId: "chimericalcorporate",
+            storageBucket: "chimericalcorporate.appspot.com",
+            messagingSenderId: "254391940743",
+            appId: "1:254391940743:web:02aedb3e7380bde8e36a22",
+            measurementId: "G-ERTNJQDZ29"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var firebaseRef = firebase.database().ref();
+
+        const auth = firebase.auth();
+
+    </script>
+    <!-- END: Firebase JS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern content-left-sidebar email-application navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="content-left-sidebar" data-layout="dark-layout">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu floating-nav navbar-light navbar-shadow">
+        <div class="navbar-wrapper">
+            <div class="navbar-container content">
+                <div class="navbar-collapse" id="navbar-mobile">
+                    <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon feather icon-menu"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav bookmark-icons">
+                            <!-- li.nav-item.mobile-menu.d-xl-none.mr-auto-->
+                            <!--   a.nav-link.nav-menu-main.menu-toggle.hidden-xs(href='#')-->
+                            <!--     i.ficon.feather.icon-menu-->
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="pc-app-todo.html" data-toggle="tooltip" data-placement="top" title="Todo"><i class="ficon feather icon-check-square"></i></a></li>
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Launch"><i class="ficon feather icon-upload-cloud"></i></a></li>
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="pc-app-calender.html" data-toggle="tooltip" data-placement="top" title="Calendar"><i class="ficon feather icon-calendar"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link bookmark-star"><i class="ficon feather icon-star warning"></i></a>
+                                <div class="bookmark-input search-input">
+                                    <div class="bookmark-input-icon"><i class="feather icon-search cxone"></i></div>
+                                    <input class="form-control input" type="text" placeholder="Explore Chimerical..." tabindex="0" data-search="template-list">
+                                    <ul class="search-list search-list-bookmark"></ul>
+                                </div>
+                                <!-- select.bookmark-select-->
+                                <!--   option Chat-->
+                                <!--   option email-->
+                                <!--   option todo-->
+                                <!--   option Calendar-->
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="nav navbar-nav float-right">
+                        <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language">English</span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#" data-language="en"><i class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="#" data-language="fr"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="#" data-language="de"><i class="flag-icon flag-icon-de"></i> German</a><a class="dropdown-item" href="#" data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a></div>
+                        </li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon feather icon-maximize"></i></a></li>
+                        <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon feather icon-search"></i></a>
+                            <div class="search-input">
+                                <div class="search-input-icon"><i class="feather icon-search cxone"></i></div>
+                                <input class="input" type="text" placeholder="Explore Vuexy..." tabindex="-1" data-search="template-list">
+                                <div class="search-input-close"><i class="feather icon-x"></i></div>
+                                <ul class="search-list search-list-main"></ul>
+                            </div>
+                        </li>
+                        <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon feather icon-bell"></i><span class="badge badge-pill badge-cxone badge-up" id="numNotifTag"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                                <li class="dropdown-menu-header">
+                                    <div class="dropdown-header m-0 p-2">
+                                        <h3 class="white" id="numberOfNotif"></h3><span class="notification-title">App Notifications</span>
+                                    </div>
+                                </li>
+                                <li class="scrollable-container media-list" id="notificationList">
+                                </li>
+                                <li class="dropdown-menu-footer"><a class="dropdown-item p-1 text-center" href="javascript:void(0)">View all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                                <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600" id="FSname">Loading...</span><span class="user-status" id="user-role">Loading...</span></div><span><img class="round" src="../../../app-assets/images/portrait/small/avatar.jpg" alt="avatar" height="40" width="40"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="pc-app-user-view.html"><i class="feather icon-user"></i> Edit Account</a><a class="dropdown-item" href="customPage.html"><i class="feather icon-file-text"></i> Demo Pages</a><a class="dropdown-item" href="pc-app-todo.html"><i class="feather icon-check-square"></i> Todo</a><a class="dropdown-item" href="#"><i class="feather icon-message-square"></i> Notification Center</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="auth-login.html" id="logout"><i class="feather icon-power"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id='hiddenpagec32'></div>
+    <ul class="main-search-list-defaultlist d-none">
+        <li class="d-flex align-items-center"><a class="pb-25" href="#">
+                <h6 class="text-primary mb-0">Files</h6>
+            </a></li>
+        <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
+                <div class="d-flex">
+                    <div class="mr-50"><img src="../../../app-assets/images/icons/xls.png" alt="png" height="32"></div>
+                    <div class="search-data">
+                        <p class="search-data-title mb-0">Two new item submitted</p><small class="text-muted">Marketing Manager</small>
+                    </div>
+                </div><small class="search-data-size mr-50 text-muted">&apos;17kb</small>
+            </a></li>
+        <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
+                <div class="d-flex">
+                    <div class="mr-50"><img src="../../../app-assets/images/icons/jpg.png" alt="png" height="32"></div>
+                    <div class="search-data">
+                        <p class="search-data-title mb-0">52 JPG file Generated</p><small class="text-muted">FontEnd Developer</small>
+                    </div>
+                </div><small class="search-data-size mr-50 text-muted">&apos;11kb</small>
+            </a></li>
+        <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
+                <div class="d-flex">
+                    <div class="mr-50"><img src="../../../app-assets/images/icons/pdf.png" alt="png" height="32"></div>
+                    <div class="search-data">
+                        <p class="search-data-title mb-0">25 PDF File Uploaded</p><small class="text-muted">Digital Marketing Manager</small>
+                    </div>
+                </div><small class="search-data-size mr-50 text-muted">&apos;150kb</small>
+            </a></li>
+        <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
+                <div class="d-flex">
+                    <div class="mr-50"><img src="../../../app-assets/images/icons/doc.png" alt="png" height="32"></div>
+                    <div class="search-data">
+                        <p class="search-data-title mb-0">Anna_Strong.doc</p><small class="text-muted">Web Designer</small>
+                    </div>
+                </div><small class="search-data-size mr-50 text-muted">&apos;256kb</small>
+            </a></li>
+        <li class="d-flex align-items-center"><a class="pb-25" href="#">
+                <h6 class="text-primary mb-0">Members</h6>
+            </a></li>
+        <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
+                <div class="d-flex align-items-center">
+                    <div class="avatar mr-50"><img src="../../../app-assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
+                    <div class="search-data">
+                        <p class="search-data-title mb-0">John Doe</p><small class="text-muted">UI designer</small>
+                    </div>
+                </div>
+            </a></li>
+        <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
+                <div class="d-flex align-items-center">
+                    <div class="avatar mr-50"><img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="png" height="32"></div>
+                    <div class="search-data">
+                        <p class="search-data-title mb-0">Michal Clark</p><small class="text-muted">FontEnd Developer</small>
+                    </div>
+                </div>
+            </a></li>
+        <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
+                <div class="d-flex align-items-center">
+                    <div class="avatar mr-50"><img src="../../../app-assets/images/portrait/small/avatar-s-14.jpg" alt="png" height="32"></div>
+                    <div class="search-data">
+                        <p class="search-data-title mb-0">Milena Gibson</p><small class="text-muted">Digital Marketing Manager</small>
+                    </div>
+                </div>
+            </a></li>
+        <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
+                <div class="d-flex align-items-center">
+                    <div class="avatar mr-50"><img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="png" height="32"></div>
+                    <div class="search-data">
+                        <p class="search-data-title mb-0">Anna Strong</p><small class="text-muted">Web Designer</small>
+                    </div>
+                </div>
+            </a></li>
+    </ul>
+    <ul class="main-search-list-defaultlist-other-list d-none">
+        <li class="auto-suggestion d-flex align-items-center justify-content-between cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100 py-50">
+                <div class="d-flex justify-content-start"><span class="mr-75 feather icon-alert-circle"></span><span>No results found.</span></div>
+            </a></li>
+    </ul>
+    <!-- END: Header-->
+
+
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="../../../index.html">
+                        <!-- <div class="brand-logo"></div>-->
+                        <h2 class="brand-text mb-0">Chimerical</h2>
+                    </a></li>
+                <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="feather icon-x d-block d-xl-none font-medium-4 cxone toggle-icon"></i><i class="toggle-icon feather icon-disc font-medium-4 d-none d-xl-block collapse-toggle-icon cxone" data-ticon="icon-disc"></i></a></li>
+            </ul>
+        </div>
+        <div class="shadow-bottom"></div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item"><a href="index.html"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge badge-warning badge-pill float-right mr-2"></span></a>
+                    <ul class="menu-content">
+                        <li><a href="../../../index.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Reporting</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" navigation-header"><span>Apps</span>
+                </li>
+                <li class="active nav-item"><a href="pc-app-launch.html"><i class="feather icon-upload-cloud"></i><span class="menu-title" data-i18n="Launch">Launch</span></a>
+                </li>
+                <li class=" nav-item"><a href="pc-app-todo.html"><i class="feather icon-check-square"></i><span class="menu-title" data-i18n="Todo">Todo</span></a>
+                </li>
+                <li class=" nav-item"><a href="pc-app-calender.html"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="Calender">Calender</span></a>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">User</span></a>
+                    <ul class="menu-content">
+                        <li><a href="pc-app-user-list.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">List</span></a>
+                        </li>
+                        <li><a href="pc-app-user-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">View</span></a>
+                        </li>
+                        <li><a href="pc-app-user-edit.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Edit">Edit</span></a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-area-wrapper">
+            <div class="sidebar-left">
+                <div class="sidebar">
+                    <div class="sidebar-content email-app-sidebar d-flex">
+                        <span class="sidebar-close-icon">
+                            <i class="feather icon-x"></i>
+                        </span>
+                        <div class="email-app-menu">
+                            <div class="form-group form-group-compose text-center compose-btn">
+                                <button type="button" class="btn btn-cxone btn-block my-2" id="refreshButton"><i class="feather icon-refresh-cw"></i> Refresh</button>
+                            </div>
+                            <div class="sidebar-menu-list">
+                                <div class="list-group list-group-messages font-medium-1">
+                                    <a href="#" class="list-group-item list-group-item-action border-0 pt-0 active" id="Reporting-View">
+                                        <i class="font-medium-5 feather icon-inbox mr-50"></i>Reporting View
+                                        <span class="badge badge-danger badge-pill float-right"></span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0" id="phone-launch-btn">
+                                        <i class="font-medium-5 feather icon-phone-call mr-50"></i> Phone
+                                        <span class="badge badge-primary badge-pill float-right"></span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0" id="chat-launch-btn">
+                                        <i class="font-medium-5 fa feather icon-monitor mr-50"></i> Chat
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0" id="email-launch-btn">
+                                        <i class="font-medium-5 feather icon-mail mr-50"></i> Email
+                                        <span class="badge badge-warning badge-pill float-right"></span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0" id="sms-launch-btn">
+                                        <i class="font-medium-5 feather icon-message-circle mr-50"></i> Text Us
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0" id="dfo-launch-btn">
+                                        <i class="font-medium-5 feather icon-grid mr-50"></i> DFO
+                                    </a>
+                                </div>
+                                <hr>
+                                <h5 class="my-2 pt-25">Labels</h5>
+                                <div class="list-group list-group-labels font-medium-1">
+                                    <a href="#" class="list-group-item list-group-item-action border-0 d-flex align-items-center phone-call-label" id="phone-label"><span class="bullet bullet-primary mr-1"></span> Phone Calls</a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0 d-flex align-items-center chat-label" id="chat-label"><span class="bullet bullet-warning mr-1"></span> Chat</a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0 d-flex align-items-center email-label" id="email-label"><span class="bullet bullet-info mr-1"></span> Email</a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0 d-flex align-items-center sms-label" id="sms-label"><span class="bullet bullet-success mr-1"></span> SMS</a>
+                                    <a href="#" class="list-group-item list-group-item-action border-0 d-flex align-items-center dfo-label" id="dfo-label"><span class="bullet bullet-danger mr-1"></span> DFO</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="content-wrapper">
+                    <div class="content-header row">
+                    </div>
+                    <div class="content-body">
+                        <div class="app-content-overlay"></div>
+                        <div class="email-app-area">
+                            <!-- Email list Area -->
+                            <div class="email-app-list-wrapper">
+                                <div class="email-app-list">
+                                    <div class="app-fixed-search">
+                                        <div class="sidebar-toggle d-block d-lg-none"><i class="feather icon-menu"></i></div>
+                                        <fieldset class="form-group position-relative has-icon-left m-0">
+                                            <input type="text" class="form-control" id="email-search" placeholder="Search interactions">
+                                            <div class="form-control-position">
+                                                <i class="feather icon-search"></i>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="app-action">
+                                        <div class="action-left">
+                                            <div class="vs-checkbox-con selectAll">
+                                                <input type="checkbox">
+                                                <span class="vs-checkbox">
+                                                    <span class="vs-checkbox--check">
+                                                        <i class="vs-icon feather icon-minus"></i>
+                                                    </span>
+                                                </span>
+                                                <span>Select All</span>
+                                            </div>
+                                        </div>
+                                        <div class="action-right">
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <div class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" id="tag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="feather icon-tag"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tag">
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-primary bullet-sm"></span> Phone Calls</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-warning bullet-sm"></span> Chat</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-info bullet-sm"></span> Emails</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-success bullet-sm"></span> SMS</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-danger bullet-sm"></span> DFO</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item mail-unread"><span class="action-icon"><i class="feather icon-mail"></i></span></li>
+                                                <li class="list-inline-item mail-delete"><span class="action-icon"><i class="feather icon-trash"></i></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="email-user-list list-group">
+                                        <!-- List For Interactions in the Main Pane -->
+                                        <ul class="users-list-wrapper media-list">
+                                            <li class="media mail-read phone-call-tag">
+                                                <div class="media-left pr-50">
+                                                    <div class="avatar">
+                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-20.jpg" alt="avtar img holder">
+                                                    </div>
+                                                    <div class="user-action">
+                                                        <div class="vs-checkbox-con">
+                                                            <input type="checkbox">
+                                                            <span class="vs-checkbox vs-checkbox-sm">
+                                                                <span class="vs-checkbox--check">
+                                                                    <i class="vs-icon feather icon-check"></i>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                        <span class="favorite"><i class="feather icon-star"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="user-details">
+                                                        <div class="mail-items">
+                                                            <h5 class="list-group-item-heading text-bold-600 mb-25">CXone Interaction Drive Data</h5>
+                                                            <span class="list-group-item-text text-truncate">Media Type</span>
+                                                        </div>
+                                                        <div class="mail-meta-item">
+                                                            <span class="float-right">
+                                                                <span class="mr-1 bullet bullet-primary bullet-sm phone-call-tag"></span><span class="mail-date">4:14 AM</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mail-message">
+                                                        <p class="list-group-item-text truncate mb-0">The idea for this area is to provide simple details related to interactions they just ran.</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- END of List For Interactions in the Main Pane -->
+                                        <div class="no-results">
+                                            <h5>No Items Found</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Customizing for Phone Module -->
+                            <div class="email-app-details">
+                                <div id="launch-phone-call">
+                                    <div class="email-detail-header">
+                                        <div class="email-header-left d-flex align-items-center mb-1">
+                                            <span class="go-back mr-1"><i class="feather icon-arrow-left font-medium-4"></i></span>
+                                            <h3>Launch Phone Call</h3>
+                                        </div>
+                                        <div class="email-header-right mb-1 ml-2 pl-1"></div>
+                                    </div>
+                                    <!-- Detailed Popout from the Right -->
+                                    <div class="email-scroll-area">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="email-label ml-2 my-2 pl-1">
+                                                    <span class="mr-1 bullet bullet-primary bullet-sm"></span><small class="mail-label">Phone Calls</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card" style="height: 499.75px;">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Click To Call</h4>
+                                                        <button type="button" class="btn btn-icon btn-flat-info waves-effect waves-light float-right"><i class="feather icon-help-circle"></i></button>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="card-body">
+                                                            <form class="form form-vertical launchPhoneForm">
+                                                                <div class="form-body">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="form-group">
+                                                                                <label for="first-name-icon">First Name</label>
+                                                                                <div class="position-relative has-icon-left">
+                                                                                    <input type="text" id="first-name-icon" class="form-control firstName" name="fname-icon" placeholder="First Name">
+                                                                                    <div class="form-control-position">
+                                                                                        <i class="feather icon-user"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <div class="form-group">
+                                                                                <label for="contact-info-icon">Phone Number</label>
+                                                                                <div class="position-relative has-icon-left">
+                                                                                    <input type="phone" id="contact-info-icon" class="form-control phoneNum" name="contact-icon" placeholder="Phone Number">
+                                                                                    <div class="form-control-position">
+                                                                                        <i class="feather icon-phone"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <div class="form-group">
+                                                                                <label for="email-id-icon">Contact Reason</label>
+                                                                                <div class="position-relative has-icon-left">
+                                                                                    <input type="text" id="email-id-icon" class="form-control contactReason" name="email-id-icon" placeholder="Contact Reason">
+                                                                                    <div class="form-control-position">
+                                                                                        <i class="feather icon-file-text"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6 col-12">
+                                                                            <label for="bu-selection">Business Unit</label>
+                                                                            <div class="form-group" data-select2-id="192">
+                                                                                <select data-placeholder="Select a BU..." class="select2-icons form-control select2-hidden-accessible cxone-bu" id="select2-icons" data-select2-id="select2-icons" tabindex="-1" aria-hidden="true">
+                                                                                    <optgroup label="Business Units" id="cxoneOpt" data-select2-id="196"></optgroup>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6 col-12">
+                                                                            <div class="custom-control custom-switch custom-switch-danger switch-md mr-2 mb-1 px-2">
+                                                                                <label for="embedded-agent">Embedded Agent</label><br>
+                                                                                <input type="checkbox" class="custom-control-input" id="customSwitch90">
+                                                                                <label class="custom-control-label" for="customSwitch90">
+                                                                                    <span class="switch-text-left">Yes</span>
+                                                                                    <span class="switch-text-right">No</span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <button type="submit" id="phone-submit" class="btn btn-cxone mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                                            <!-- THIS IS THE CLICK TO DIAL PIECE ^^^ ABOVE CREATE ON CLICK ACTION FO THIS FELLA -->
+                                                                            <button type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Reset</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-between">
+                                                            <span class="font-medium-1">Click here for <span class="cxone cursor-pointer"><strong>Documentation</strong></span> related to using this function.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ Launch Phone Calls -->
+                            <!-- Customizing for Chat Module -->
+                            <div class="email-app-details">
+                                <div id="launch-chats">
+                                    <div class="email-detail-header">
+                                        <div class="email-header-left d-flex align-items-center mb-1">
+                                            <span class="go-back mr-1"><i class="feather icon-arrow-left font-medium-4"></i></span>
+                                            <h3>Launch Chat</h3>
+                                        </div>
+                                        <div class="email-header-right mb-1 ml-2 pl-1"></div>
+                                    </div>
+                                    <!-- Detailed Popout from the Right -->
+                                    <div class="email-scroll-area">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="email-label ml-2 my-2 pl-1">
+                                                    <span class="mr-1 bullet bullet-warning bullet-sm"></span><small class="mail-label">Chat</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card" style="height: 499.75px;">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Fill Chat Info</h4>
+                                                        <button type="button" class="btn btn-icon btn-flat-info waves-effect waves-light float-right"><i class="feather icon-help-circle"></i></button>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="card-body">
+                                                            <form class="form form-vertical launchChatForm">
+                                                                <div class="form-body">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="form-group">
+                                                                                <label for="first-name-icon">First Name</label>
+                                                                                <div class="position-relative has-icon-left">
+                                                                                    <input type="text" id="first-name-icon" class="form-control firstName" name="fname-icon" placeholder="First Name">
+                                                                                    <div class="form-control-position">
+                                                                                        <i class="feather icon-user"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <div class="form-group">
+                                                                                <label for="contact-info-icon">Email</label>
+                                                                                <div class="position-relative has-icon-left">
+                                                                                    <input type="email" id="contact-info-icon" class="form-control emailAdd" name="contact-icon" placeholder="Email Address">
+                                                                                    <div class="form-control-position">
+                                                                                        <i class="feather icon-mail"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <div class="form-group">
+                                                                                <label for="email-id-icon">Contact Reason</label>
+                                                                                <div class="position-relative has-icon-left">
+                                                                                    <input type="text" id="email-id-icon" class="form-control contactReason" name="email-id-icon" placeholder="Contact Reason">
+                                                                                    <div class="form-control-position">
+                                                                                        <i class="feather icon-file-text"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6 col-12">
+                                                                            <label for="bu-selection">Business Unit</label>
+                                                                            <div class="form-group" data-select2-id="192">
+                                                                                <select data-placeholder="Select a BU..." class="select2-icons form-control select2-hidden-accessible cxone-bu" id="select2-icons" data-select2-id="select2-icons" tabindex="-1" aria-hidden="true">
+                                                                                    <optgroup label="Business Units" id="cxoneOpt" data-select2-id="196"></optgroup>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-12">
+                                                                            <button type="submit" id="chat-submit" class="btn btn-cxone mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                                            <!-- THIS IS THE CLICK TO DIAL PIECE ^^^ ABOVE CREATE ON CLICK ACTION FO THIS FELLA -->
+                                                                            <button type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Reset</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-between">
+                                                            <span class="font-medium-1">Click here for <span class="cxone cursor-pointer"><strong>Documentation</strong></span> related to using this function.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ Launch Chats -->
+                            <!-- Customizing for Email Module -->
+                            <div class="email-app-details">
+                                <div id="launch-emails">
+                                    <div class="email-detail-header">
+                                        <div class="email-header-left d-flex align-items-center mb-1">
+                                            <span class="go-back mr-1"><i class="feather icon-arrow-left font-medium-4"></i></span>
+                                            <h3>Launch Email</h3>
+                                        </div>
+                                        <div class="email-header-right mb-1 ml-2 pl-1"></div>
+                                    </div>
+                                    <!-- Detailed Popout from the Right -->
+                                    <div class="email-scroll-area">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="email-label ml-2 my-2 pl-1">
+                                                    <span class="mr-1 bullet bullet-info bullet-sm"></span><small class="mail-label">Email</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card" style="height: 419.75px;">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Fill Out The Following</h4>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="card-body">
+                                                            <form class="form">
+                                                                <div class="form-body">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="form-label-group position-relative has-icon-left">
+                                                                                <input type="text" id="emailTo" class="form-control" name="fname-floating-icon" placeholder="To Address">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="feather icon-user"></i>
+                                                                                </div>
+                                                                                <label for="first-name-floating-icon">To Address</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <div class="form-label-group position-relative has-icon-left">
+                                                                                <input type="email" id="emailCC" class="form-control" name="email-id-floating-icon" placeholder="CC Address">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="feather icon-mail"></i>
+                                                                                </div>
+                                                                                <label for="email-id-floating-icon">CC Address</label>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <div class="form-label-group position-relative has-icon-left">
+                                                                                <input type="text" id="emailSubject" class="form-control" name="contact-floating-icon" placeholder="Subject">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="feather icon-smartphone"></i>
+                                                                                </div>
+                                                                                <label for="email-subject">Subject</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <div class="form-label-group position-relative">
+                                                                                <fieldset class="form-label-group mb-0">
+                                                                                    <textarea data-length="50" class="form-control char-textarea" id="emailBody" rows="3" placeholder="Body"></textarea>
+                                                                                    <label for="textarea-counter">Body</label>
+                                                                                </fieldset>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-12">
+                                                                            <button type="submit" class="btn btn-cxone mr-1 mb-1 waves-effect waves-light" onclick="mailto();">Submit</button>
+                                                                            <button type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light">Reset</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ Launch Emails -->
+                            <!-- Customizing for SMS Module -->
+                            <div class="email-app-details">
+                                <div id="launch-sms">
+                                    <div class="email-detail-header">
+                                        <div class="email-header-left d-flex align-items-center mb-1">
+                                            <span class="go-back mr-1"><i class="feather icon-arrow-left font-medium-4"></i></span>
+                                            <h3>Launch SMS - Coming Soon</h3>
+                                        </div>
+                                        <div class="email-header-right mb-1 ml-2 pl-1">
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item"><span class="action-icon favorite"><i class="feather icon-star font-medium-5"></i></span></li>
+                                                <li class="list-inline-item">
+                                                    <div class="dropdown no-arrow">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="feather icon-folder font-medium-5"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="folder">
+                                                            <a class="dropdown-item d-flex font-medium-1" href="#"><i class="font-medium-3 feather icon-edit-2 mr-50"></i> Draft</a>
+                                                            <a class="dropdown-item d-flex font-medium-1" href="#"><i class="font-medium-3 feather icon-info mr-50"></i> Spam</a>
+                                                            <a class="dropdown-item d-flex font-medium-1" href="#"><i class="font-medium-3 feather icon-trash mr-50"></i> Trash</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="dropdown no-arrow">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="feather icon-tag font-medium-5"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tag">
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-success bullet-sm"></span> Personal</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-primary bullet-sm"></span> Company</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-warning bullet-sm"></span> Important</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-danger bullet-sm"></span> Private</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item"><span class="action-icon"><i class="feather icon-mail font-medium-5"></i></span></li>
+                                                <li class="list-inline-item"><span class="action-icon"><i class="feather icon-trash font-medium-5"></i></span></li>
+                                                <li class="list-inline-item email-prev"><span class="action-icon"><i class="feather icon-chevrons-left font-medium-5"></i></span></li>
+                                                <li class="list-inline-item email-next"><span class="action-icon"><i class="feather icon-chevrons-right font-medium-5"></i></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Detailed Popout from the Right -->
+                                    <div class="email-scroll-area">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="email-label ml-2 my-2 pl-1">
+                                                    <span class="mr-1 bullet bullet-success bullet-sm"></span><small class="mail-label">SMS</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card px-1">
+                                                    <div class="card-header email-detail-head ml-75">
+                                                        <div class="user-details d-flex justify-content-between align-items-center flex-wrap">
+                                                            <div class="avatar mr-75">
+                                                                <img src="../../../app-assets/images/portrait/small/avatar-s-18.jpg" alt="avtar img holder" width="61" height="61">
+                                                            </div>
+                                                            <div class="mail-items">
+                                                                <h4 class="list-group-item-heading mb-0">Text Messaging</h4>
+                                                                <div class="email-info-dropup">
+                                                                    <span class=" font-small-3">
+                                                                        Coming Soon &#8482;
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mail-meta-item">
+                                                            <div class="mail-time mb-1" id="currentTime"></div>
+                                                            <div class="mail-date" id="currentDate"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body mail-message-wrapper pt-2 mb-0">
+                                                        <div class="mail-message">
+                                                            <p>Hey John,</p>
+                                                            <p>bah kivu decrete epanorthotic unnotched Argyroneta nonius veratrine preimaginary saunders demidolmen Chaldaic allusiveness lorriker unworshipping ribaldish tableman hendiadys outwrest unendeavored fulfillment scientifical Pianokoto Chelonia</p>
+                                                            <p>Freudian sperate unchary hyperneurotic phlogiston duodecahedron unflown Paguridea catena disrelishable Stygian paleopsychology cantoris phosphoritic disconcord fruited inblow somewhatly ilioperoneal forrard palfrey Satyrinae outfreeman melebiose</p>
+                                                        </div>
+                                                        <div class="mail-attachements d-flex">
+                                                            <i class="feather icon-paperclip font-medium-5 mr-50"></i>
+                                                            <span>Attachments</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mail-files py-2">
+                                                        <div class="chip chip-primary">
+                                                            <div class="chip-body py-50">
+                                                                <span class="chip-text">interdum.docx</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ Launch SMS's -->
+                            <!-- Customizing for DFO Module -->
+                            <div class="email-app-details">
+                                <div id="launch-dfo">
+                                    <div class="email-detail-header">
+                                        <div class="email-header-left d-flex align-items-center mb-1">
+                                            <span class="go-back mr-1"><i class="feather icon-arrow-left font-medium-4"></i></span>
+                                            <h3>Launch DFO - Coming Soon</h3>
+                                        </div>
+                                        <div class="email-header-right mb-1 ml-2 pl-1">
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item"><span class="action-icon favorite"><i class="feather icon-star font-medium-5"></i></span></li>
+                                                <li class="list-inline-item">
+                                                    <div class="dropdown no-arrow">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="feather icon-folder font-medium-5"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="folder">
+                                                            <a class="dropdown-item d-flex font-medium-1" href="#"><i class="font-medium-3 feather icon-edit-2 mr-50"></i> Draft</a>
+                                                            <a class="dropdown-item d-flex font-medium-1" href="#"><i class="font-medium-3 feather icon-info mr-50"></i> Spam</a>
+                                                            <a class="dropdown-item d-flex font-medium-1" href="#"><i class="font-medium-3 feather icon-trash mr-50"></i> Trash</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="dropdown no-arrow">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="feather icon-tag font-medium-5"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tag">
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-success bullet-sm"></span> Personal</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-primary bullet-sm"></span> Company</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-warning bullet-sm"></span> Important</a>
+                                                            <a href="#" class="dropdown-item font-medium-1"><span class="mr-1 bullet bullet-danger bullet-sm"></span> Private</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item"><span class="action-icon"><i class="feather icon-mail font-medium-5"></i></span></li>
+                                                <li class="list-inline-item"><span class="action-icon"><i class="feather icon-trash font-medium-5"></i></span></li>
+                                                <li class="list-inline-item email-prev"><span class="action-icon"><i class="feather icon-chevrons-left font-medium-5"></i></span></li>
+                                                <li class="list-inline-item email-next"><span class="action-icon"><i class="feather icon-chevrons-right font-medium-5"></i></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Detailed Popout from the Right -->
+                                    <div class="email-scroll-area">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="email-label ml-2 my-2 pl-1">
+                                                    <span class="mr-1 bullet bullet-danger bullet-sm"></span><small class="mail-label">DFO</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card px-1">
+                                                    <div class="card-header email-detail-head ml-75">
+                                                        <div class="user-details d-flex justify-content-between align-items-center flex-wrap">
+                                                            <div class="avatar mr-75">
+                                                                <img src="../../../app-assets/images/portrait/small/avatar-s-18.jpg" alt="avtar img holder" width="61" height="61">
+                                                            </div>
+                                                            <div class="mail-items">
+                                                                <h4 class="list-group-item-heading mb-0">Digital First Omnichannel</h4>
+                                                                <div class="email-info-dropup">
+                                                                    <span class=" font-small-3">
+                                                                        Coming Soon &#8482;
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mail-meta-item">
+                                                            <div class="mail-time mb-1" id="currentTime"></div>
+                                                            <div class="mail-date" id="currentDate"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body mail-message-wrapper pt-2 mb-0">
+                                                        <div class="mail-message">
+                                                            <p>Hey John,</p>
+                                                            <p>bah kivu decrete epanorthotic unnotched Argyroneta nonius veratrine preimaginary saunders demidolmen Chaldaic allusiveness lorriker unworshipping ribaldish tableman hendiadys outwrest unendeavored fulfillment scientifical Pianokoto Chelonia</p>
+                                                            <p>Freudian sperate unchary hyperneurotic phlogiston duodecahedron unflown Paguridea catena disrelishable Stygian paleopsychology cantoris phosphoritic disconcord fruited inblow somewhatly ilioperoneal forrard palfrey Satyrinae outfreeman melebiose</p>
+                                                        </div>
+                                                        <div class="mail-attachements d-flex">
+                                                            <i class="feather icon-paperclip font-medium-5 mr-50"></i>
+                                                            <span>Attachments</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mail-files py-2">
+                                                        <div class="chip chip-primary">
+                                                            <div class="chip-body py-50">
+                                                                <span class="chip-text">interdum.docx</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Launch DFO -->
+                        <!--/ Detailed Email View -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light"></footer>
+    <!-- END: Footer-->
+
+    <!-- ADD: Notifications Based on database -->
+
+    <!-- END: Notifications -->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="../../../app-assets/vendors/js/editors/quill/katex.min.js"></script>
+    <script src="../../../app-assets/vendors/js/editors/quill/highlight.min.js"></script>
+    <script src="../../../app-assets/vendors/js/editors/quill/quill.min.js"></script>
+    <script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="../../../app-assets/js/core/app-menu.js"></script>
+    <script src="../../../app-assets/js/core/app.js"></script>
+    <script src="../../../app-assets/js/scripts/components.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="../../../app-assets/js/scripts/pages/pc-app-email.js"></script>
+    <script src="../../../app-assets/js/scripts/pages/pc-launch-filter.js"></script>
+    <script src="../../../app-assets/js/scripts/forms/form-select2.js"></script>
+    <script src="../../../app-assets/js/scripts/pages/app-chat.js"></script>
+    <script src="../../../app-assets/js/scripts/pages/pc-launch-clickToCall.js"></script>
+
+    <script src="../../../app-assets/js/scripts/forms/form-wizard.js"></script>
+    <script src="../../../app-assets/js/scripts/forms/form-wizard.min.js"></script>
+    <script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/jquery.steps.min.js"></script>
+    <!-- END: Page JS-->
+
+    <!-- BEGIN: CXone API 
+    <script src="../../../app-assets/js/scripts/pages/pc-cxone.js"></script>
+    <!-- END: CXone API -->
+
+    <!-- BEGIN: Authentication 
+    <script src="../../../app-assets/js/scripts/pages/pc-authentication.js"></script>
+    <!-- END: Authentication -->
+    
+    <!--<script src="../../../app-assets/js/scripts/pages/pc-index.js"></script>-->
+    <!-- END: Authentication -->
+
+    <!-- BEGIN: CXone API 
+    <script src="../../../app-assets/js/scripts/pages/mailto.js"></script>
+    <!-- END: CXone API -->
+
+
+</body>
+<!-- END: Body-->
+
+</html>
