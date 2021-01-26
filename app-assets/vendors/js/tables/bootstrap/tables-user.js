@@ -84,6 +84,8 @@
                      //console.log(customStatus);
                  }
              });
+             
+             
 
              // Upload stuff to db
              $(".btn-accept").click(function () {

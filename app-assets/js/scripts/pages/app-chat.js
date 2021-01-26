@@ -267,7 +267,7 @@ $(window).on('resize', function () {
             $('.body-content-overlay').removeClass('show');
         }
     }
-});
+}); 
 
 // Add message to chat - function call on form submit
     var newLeftMessage = false;

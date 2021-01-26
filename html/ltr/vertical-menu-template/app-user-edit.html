@@ -18,6 +18,10 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/shepherd.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/tether.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/tether-theme-arrows.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -35,6 +39,11 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-user.css">
     <!-- END: Page CSS-->
+
+    <!-- BEGIN: Template Files -->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-tour.css">
+    <!-- END: Template Files -->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
@@ -76,6 +85,17 @@
         var firebaseRef = firebase.database().ref();
 
         const auth = firebase.auth();
+
+        // logged in check
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                console.log("User Signed In");
+            } else {
+                // No user is signed in.
+                window.location.href = "page-auth-login-v1.html";
+            }
+        });
 
     </script>
     <!-- END: Firebase JS-->
@@ -140,10 +160,10 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">Loading...</span><span class="user-status">Loading...</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">Loading...</span><span class="user-status">Loading...</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="mr-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="mr-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="mr-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="mr-50" data-feather="message-square"></i> Chats</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings.html"><i class="mr-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="mr-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="page-auth-login-v2.html"><i class="mr-50" data-feather="power"></i> Logout</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="app-user-view.html"><i class="mr-50" data-feather="user"></i> Edit Account</a><a class="dropdown-item" href="#"><i class="mr-50" data-feather="mail"></i> Demo Pages</a><a class="dropdown-item" href="app-todo.html"><i class="mr-50" data-feather="check-square"></i> Todo</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item logout" href="page-auth-login-v1.html"><i class="mr-50" data-feather="power"></i> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -323,7 +343,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center" id="social-tab" data-toggle="tab" href="#social" aria-controls="social" role="tab" aria-selected="false">
-                                        <i data-feather="share-2"></i><span class="d-none d-sm-block">Agent ID's</span>
+                                        <i data-feather="share-2"></i><span class="d-none d-sm-block agent-IDs">Agent ID's</span>
                                     </a>
                                 </li>
                             </ul>
@@ -355,7 +375,7 @@
                                     </div>
                                     <!-- users edit media object ends -->
                                     <!-- users edit account form start -->
-                                    <form class="form-validate">
+                                    <form class="checkerForm">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -380,7 +400,7 @@
                                                     <label for="status">Status</label>
                                                     <select class="form-control user-status" id="status" name="changedStatus">
                                                         <option value="Active">Active</option>
-                                                        <option value="Inactive">Blocked</option>
+                                                        <option value="Inactive">Inactive</option>
                                                         <option value="Deactivated">Deactivated</option>
                                                     </select>
                                                 </div>
@@ -388,7 +408,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="role">Role</label>
-                                                    <select class="form-control" name="changedRole" id="role">
+                                                    <select class="form-control user-role" name="changedRole" id="role">
                                                         <option value="Administrator">Administrator</option>
                                                         <option value="Sales Engineer">Sales Engineer</option>
                                                         <option value="DSM">DSM</option>
@@ -411,9 +431,9 @@
                                 </div>
                                 <!-- Account Tab ends -->
 
-                                <!-- Information Tab starts -->
+                                <!-- Bot Configuration Tab starts -->
                                 <div class="tab-pane" id="information" aria-labelledby="information-tab" role="tabpanel">
-                                    <!-- users edit Info form start -->
+                                    <!-- Bot Configuration form start -->
                                     <form class="form-validate">
                                         <div class="row mt-1">
                                             <div class="col-12">
@@ -425,19 +445,19 @@
                                             <div class="col-lg-4 col-md-6">
                                                 <div class="form-group">
                                                     <label for="mobile">Mobile</label>
-                                                    <input id="mobile" type="text" class="form-control user-phone" name="changedBotPhone" />
+                                                    <input id="mobile" type="text" class="form-control user-phone" name="changedBotPhone" disabled />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class="form-group">
                                                     <label for="website">Email</label>
-                                                    <input id="website" type="text" class="form-control user-email" placeholder="Website here..." name="changedBotEmail" />
+                                                    <input id="website" type="text" class="form-control user-email" placeholder="Website here..." name="changedBotEmail" disabled />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class="form-group">
                                                     <label for="languages">Languages</label>
-                                                    <select id="languages" class="form-control">
+                                                    <select id="languages" class="form-control" disabled>
                                                         <option value="English" selected>English</option>
                                                         <option value="Spanish">Spanish</option>
                                                         <option value="French">French</option>
@@ -452,15 +472,15 @@
                                                 <div class="form-group">
                                                     <label class="d-block mb-1">Contact Options</label>
                                                     <div class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input" id="email-cb" />
+                                                        <input type="checkbox" class="custom-control-input" id="email-cb" disabled />
                                                         <label class="custom-control-label" for="email-cb">Email</label>
                                                     </div>
                                                     <div class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input" id="message" />
+                                                        <input type="checkbox" class="custom-control-input" id="message" disabled />
                                                         <label class="custom-control-label" for="message">Message</label>
                                                     </div>
                                                     <div class="custom-control custom-checkbox custom-control-inline">
-                                                        <input type="checkbox" class="custom-control-input" id="phone" />
+                                                        <input type="checkbox" class="custom-control-input" id="phone" disabled />
                                                         <label class="custom-control-label" for="phone">Phone</label>
                                                     </div>
                                                 </div>
@@ -471,14 +491,14 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <!-- users edit Info form ends -->
+                                    <!-- Bot Configuration Form ends -->
                                 </div>
-                                <!-- Information Tab ends -->
+                                <!-- Bot Configuration Tab ends -->
 
-                                <!-- Social Tab starts -->
+                                <!-- Agent ID's Tab starts -->
                                 <div class="tab-pane" id="social" aria-labelledby="social-tab" role="tabpanel">
                                     <!-- users edit social form start -->
-                                    <form class="form-validate">
+                                    <form class="checkerForm">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 form-group">
                                                 <label for="twitter-input">C35</label>
@@ -488,7 +508,7 @@
                                                             <i data-feather="database" class="font-medium-2"></i>
                                                         </span>
                                                     </div>
-                                                    <input id="twitter-input" type="text" class="form-control user-c35" placeholder="https://www.twitter.com/" aria-describedby="basic-addon3" />
+                                                    <input id="twitter-input" type="text" class="form-control user-c35" placeholder="https://www.twitter.com/" aria-describedby="basic-addon3" name="changedAgentC35" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6 form-group">
@@ -499,7 +519,7 @@
                                                             <i data-feather="database" class="font-medium-2"></i>
                                                         </span>
                                                     </div>
-                                                    <input id="facebook-input" type="text" class="form-control user-c32" placeholder="https://www.facebook.com/" aria-describedby="basic-addon4" />
+                                                    <input id="facebook-input" type="text" class="form-control user-c32" placeholder="https://www.facebook.com/" aria-describedby="basic-addon4" name="changedAgentC32" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6 form-group">
@@ -510,7 +530,7 @@
                                                             <i data-feather="database" class="font-medium-2"></i>
                                                         </span>
                                                     </div>
-                                                    <input id="instagram-input" type="text" class="form-control user-b32" placeholder="https://www.instagram.com/" aria-describedby="basic-addon5" />
+                                                    <input id="instagram-input" type="text" class="form-control user-b32" placeholder="https://www.instagram.com/" aria-describedby="basic-addon5" name="changedAgentB32" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6 form-group">
@@ -521,7 +541,7 @@
                                                             <i data-feather="database" class="font-medium-2"></i>
                                                         </span>
                                                     </div>
-                                                    <input id="github-input" type="text" class="form-control user-b2" placeholder="https://www.github.com/" aria-describedby="basic-addon9" />
+                                                    <input id="github-input" type="text" class="form-control user-b2" placeholder="https://www.github.com/" aria-describedby="basic-addon9" name="changedAgentB2" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-6 form-group">
@@ -605,6 +625,9 @@
 
     <!-- BEGIN: Vendor JS-->
     <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/shepherd.min.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/tether.min.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->

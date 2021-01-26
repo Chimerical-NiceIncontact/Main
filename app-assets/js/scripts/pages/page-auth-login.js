@@ -37,6 +37,9 @@ $(function () {
             }
         });
     }
+
+
+
     pageLoginForm.submit(function (event) {
         event.preventDefault();
         console.log("pressed");
@@ -46,16 +49,16 @@ $(function () {
 
         auth.signInWithEmailAndPassword(email, password)
             .then(cred => {
-            // On Successfull login, goto index.html
-            console.log("Logged In: "+ cred);
-            window.location.href="app-launch.html";
-        }).catch((e) => {
-            // On error, do popup to tell customer.
-            toastr['error'](e.toString(),'Invalid Attempt',{
-                closeButton: true,
-                tapToDismiss: false,
-                progressBar: true
+                // On Successfull login, goto index.html
+                console.log("Logged In: " + cred);
+                window.location.href = "app-launch.html";
+            }).catch((e) => {
+                // On error, do popup to tell customer.
+                toastr['error'](e.toString(), 'Invalid Attempt', {
+                    closeButton: true,
+                    tapToDismiss: false,
+                    progressBar: true
+                });
             });
-        });
     });
 });

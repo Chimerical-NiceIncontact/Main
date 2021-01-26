@@ -32,6 +32,7 @@ $(function () {
             db.collection("users").doc(user.uid).get().then(function (doc) {
                 if (doc.exists) {
                     var data = doc.data();
+                    var signInCount = data.Misc.SignedInCount;
                     var x = "";
                     // Top right
                     if (('.user-name').length) {
@@ -55,6 +56,92 @@ $(function () {
                     $('.user-c32').val(data.AgentID.C32);
                     $('.user-b32').val(data.AgentID.B32);
                     $('.user-b2').val(data.AgentID.B2);
+
+                    // Shepherd Tour
+                    if (signInCount == 0) {
+                        var testing = $('.social-tab');
+                        var tourVar = new Shepherd.Tour({
+                            defaultStepOptions: {
+                                classes: 'shadow-md bg-purple-dark',
+                                scrollTo: false,
+                                cancelIcon: {
+                                    enabled: true
+                                }
+                            },
+                            useModalOverlay: true
+                        });
+                        setupTour(tourVar).start();
+
+                        function setupTour(tour) {
+                            tour.addStep({
+                                title: 'Lets Add Your Agent IDs',
+                                text: 'Next, press "Edit" so that we can go ahead and add your Agent IDs',
+                                attachTo: {
+                                    element: '.agent-IDs',
+                                    on: 'bottom'
+                                },
+                                buttons: [
+                                    {
+                                        action: tour.next,
+                                        classes: 'btn btn-sm btn-primary btn-next',
+                                        text: 'Okay'
+                                    }
+                                ]
+                            });
+                            return tour;
+                        }
+                    }
+                    $('#social-tab').on('click', function () {
+                        if (data.Misc.SignedInCount == 0) {
+                            var tourVar = new Shepherd.Tour({
+                                defaultStepOptions: {
+                                    classes: 'shadow-md bg-purple-dark',
+                                    scrollTo: false,
+                                    cancelIcon: {
+                                        enabled: true
+                                    }
+                                },
+                                useModalOverlay: true
+                            });
+                            setupTour(tourVar).start();
+
+                            function setupTour(tour) {
+                                tour.addStep({
+                                    title: 'Lets Add Your Agent IDs',
+                                    text: 'Now that we are finally here, enter in all the shown Agent Id fields, except for C37 and C32-BE.  These will be used later',
+                                    attachTo: {
+                                        element: '.user-user',
+                                        on: 'bottom'
+                                    },
+                                    buttons: [
+                                        {
+                                            action: tour.next,
+                                            classes: 'btn btn-sm btn-primary btn-next',
+                                            text: 'Okay'
+                                    }
+                                ]
+                                });
+                                return tour;
+                            }
+                        }
+                    });
+                    // Once they are finished editing their agent, we tell em.
+                    /*
+                    if (data.Misc.SignedInCount == 1) {
+                        setTimeout(function () {
+                            toastr['success'](
+                                'You are all ready to go!',
+                                'Congrats!', {
+                                    closeButton: true,
+                                    tapToDismiss: false,
+                                    positionClass: "toast-bottom-center"
+                                }
+                            );
+                        }, 2000);
+                    } else {
+
+                    }
+                    */
 
                     // Nasa API
                     var apod = {
@@ -139,50 +226,85 @@ $(function () {
                         $('#user-modal').modal('hide');
                     })
 
+                    $("form.checkerForm").on("change", ":input", function (e) {
+                        //':input' selector get all form fields even textarea, input, or select
+                        window[$(this).attr("name")] = true;
+                        console.log($(this).attr("name"));
+                    });
+
 
                     // Upload stuff to db
                     $(".btn-accept").click(function () {
                         // User Info
-                        var changedName = $('.dt-full-name').val();
-                        var changedEmail = $('.dt-email').val();
-                        var changedPhone = $('.dt-phone').val();
-                        var changedRole = $('.dt-role').val();
-                        var changedUsername = $('.dt-username').val();
+                        var changedName = $('.user-fullname').val();
+                        var changedEmail = $('.user-email').val();
+                        var changedPhone = $('.user-phone').val();
+                        var changedRole = $('.user-role').val();
+                        var changedUsername = $('.user-username').val();
                         var changedStatus = $('#status').val();
-                        console.log(changedEmail);
 
                         // Agent ID
-                        var changedAgentC35 = $('.dt-c35').val();
-                        var changedAgentC32 = $('.dt-c32').val();
-                        var changedAgentB32 = $('.dt-b32').val();
-                        var changedAgentB2 = $('.dt-b2').val();
+                        var changedAgentC35 = $('.user-c35').val();
+                        var changedAgentC32 = $('.user-c32').val();
+                        var changedAgentB32 = $('.user-b32').val();
+                        var changedAgentB2 = $('.user-b2').val();
 
                         // POST
-                        var postData = {
-                            Name: changedName ? changedName : null,
-                            Email: changedEmail ? changedEmail : null,
-                            Phone: changedPhone ? changedPhone : null,
-                            Role: changedRole ? changedRole : null,
-                            Status: changedStatus ? changedStatus : null,
-                            Username: changedUsername ? changedUsername : null,
-                            AgentID: {
-                                C35: changedAgentC35 ? changedAgentC35 : null,
-                                C32: changedAgentC32 ? changedAgentC32 : null,
-                                B32: changedAgentB32 ? changedAgentB32 : null,
-                                B2: changedAgentB2 ? changedAgentB2 : null
-                            }
-                        };
+                        if (data.Misc.SignedInCount == 0) {
+                            var postData = {
+                                Name: changedName ? changedName : null,
+                                Email: changedEmail ? changedEmail : null,
+                                Phone: changedPhone ? changedPhone : null,
+                                Role: changedRole ? changedRole : null,
+                                Status: changedStatus ? changedStatus : null,
+                                Username: changedUsername ? changedUsername : null,
+                                AgentID: {
+                                    C35: changedAgentC35 ? changedAgentC35 : null,
+                                    C32: changedAgentC32 ? changedAgentC32 : null,
+                                    B32: changedAgentB32 ? changedAgentB32 : null,
+                                    B2: changedAgentB2 ? changedAgentB2 : null
+                                },
+                                "Misc.SignedInCount": 1
+                            };
+                        } else {
+                            var postData = {
+                                Name: changedName ? changedName : null,
+                                Email: changedEmail ? changedEmail : null,
+                                Phone: changedPhone ? changedPhone : null,
+                                Role: changedRole ? changedRole : null,
+                                Status: changedStatus ? changedStatus : null,
+                                Username: changedUsername ? changedUsername : null,
+                                AgentID: {
+                                    C35: changedAgentC35 ? changedAgentC35 : null,
+                                    C32: changedAgentC32 ? changedAgentC32 : null,
+                                    B32: changedAgentB32 ? changedAgentB32 : null,
+                                    B2: changedAgentB2 ? changedAgentB2 : null
+                                }
+                            };
+                        }
                         console.log(postData);
-                        /*
                         userDocRef.doc(user.uid).update(postData).then(function () {
-                            console.log("Document successfully updated!");
-                            //console.log(postData);
-                            location.reload();
+                            if (data.Misc.SignedInCount == 1) {
+                                setTimeout(function () {
+                                    toastr['success'](
+                                        'You are all ready to go!',
+                                        'Congrats!', {
+                                            closeButton: true,
+                                            tapToDismiss: false,
+                                            positionClass: "toast-bottom-center"
+                                        }
+                                    );
+                                }, 2000);
+                            } else {
+                                console.log("Document successfully updated!");
+                                //console.log(postData);
+                                location.reload();
+                            }
                         }).catch(function (error) {
                             // The document probably doesnt exists
                             console.error("Error updating document: ", error);
                         });
-                        */
+
 
 
                     });
@@ -191,6 +313,14 @@ $(function () {
         }
     });
 
+    // logout
+    $('.logout').on('click', function (e) {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    });
 
     // Change user profile picture
     if (changePicture.length) {

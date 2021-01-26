@@ -76,6 +76,16 @@
 
         const auth = firebase.auth();
 
+        // logged in check
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                console.log("User Signed In");
+            } else {
+                // No user is signed in.
+                window.location.href = "page-auth-login-v1.html";
+            }
+        });
     </script>
     <!-- END: Firebase JS-->
 
@@ -383,9 +393,6 @@
                 });
             }
         })
-
     </script>
 </body>
-<!-- END: Body-->
-
-</html>
+<!-- END: Body--></html>

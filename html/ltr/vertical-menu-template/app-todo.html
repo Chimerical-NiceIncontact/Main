@@ -46,7 +46,7 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <!-- END: Custom CSS-->
-    
+
     <!-- BEGIN: Firebase JS-->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
@@ -83,6 +83,18 @@
         var firebaseRef = firebase.database().ref();
 
         const auth = firebase.auth();
+
+        // logged in check
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                console.log("User Signed In");
+            } else {
+                // No user is signed in.
+                window.location.href = "page-auth-login-v1.html";
+            }
+        });
+
     </script>
     <!-- END: Firebase JS-->
 
@@ -131,7 +143,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i>
-                    <!-- Commenting out the pill above the notification bell
+                        <!-- Commenting out the pill above the notification bell
                     <span class="badge badge-pill badge-danger badge-up"></span>
                     -->
                     </a>
@@ -149,7 +161,7 @@
                         <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">Loading...</span><span class="user-status">Loading...</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="app-user-view.html"><i class="mr-50" data-feather="user"></i> View Account</a><a class="dropdown-item" href="app-email.html"><i class="mr-50" data-feather="mail"></i> Demo Pages</a><a class="dropdown-item" href="app-todo.html"><i class="mr-50" data-feather="check-square"></i> Todo</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="page-auth-login-v2.html"><i class="mr-50" data-feather="power"></i> Logout</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-faq.html"><i class="mr-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item logout" href="page-auth-login-v2.html"><i class="mr-50" data-feather="power"></i> Logout</a>
                     </div>
                 </li>
             </ul>
@@ -173,7 +185,7 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mr-auto"><a class="navbar-brand" href="../../../html/ltr/vertical-menu-template/index.html"><span class="brand-logo">
-                            </span>
+                        </span>
                         <h2 class="brand-text">Chimerical</h2>
                     </a></li>
                 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
@@ -823,6 +835,7 @@
                 });
             }
         })
+
     </script>
 </body>
 <!-- END: Body-->

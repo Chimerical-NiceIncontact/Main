@@ -60,7 +60,7 @@ $(function () {
                 $('#popover871274').fadeIn(100);
                 $('.nasa-image-title').html(result.title);
                 $('.nasa-image-body').html(shorten);
-            }, function() {
+            }, function () {
                 $('#popover871274').fadeOut(500);
                 //$('#popover871274').removeClass('show');
             });
@@ -108,6 +108,7 @@ $(function () {
             db.collection("users").doc(user.uid).get().then(function (doc) {
                 if (doc.exists) {
                     var data = doc.data();
+                    var signInCount = data.Misc.SignedInCount;
                     var x = "";
                     // Top right
                     if (('.user-name').length) {
@@ -130,9 +131,51 @@ $(function () {
                     $('.user-b2')[0].innerHTML = data.AgentID.B2;
 
 
+                    if (signInCount == 0) {
+                        var tourVar = new Shepherd.Tour({
+                            defaultStepOptions: {
+                                classes: 'shadow-md bg-purple-dark',
+                                scrollTo: false,
+                                cancelIcon: {
+                                    enabled: true
+                                }
+                            },
+                            useModalOverlay: true
+                        });
+                        setupTour(tourVar).start();
+
+                        function setupTour(tour) {
+                            tour.addStep({
+                                title: 'Lets Add Your Agent IDs',
+                                text: 'Next, press "Edit" so that we can go ahead and add your Agent IDs',
+                                attachTo: {
+                                    element: '.edit-account',
+                                    on: 'bottom'
+                                },
+                                buttons: [
+                                    {
+                                        action: tour.next,
+                                        classes: 'btn btn-sm btn-primary btn-next',
+                                        text: 'Okay'
+                                    }
+                                ]
+                            });
+                            return tour;
+                        }
+                    }
+
                 }
             })
         }
+    });
+
+    // logout
+    $('.logout').on('click', function (e) {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
     });
 
     // Plan Expiry Year

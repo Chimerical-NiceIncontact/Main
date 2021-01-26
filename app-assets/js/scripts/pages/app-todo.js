@@ -97,24 +97,25 @@ $(function () {
                     $('.user-name')[0].innerHTML = data.Name;
                     $('.user-status')[0].innerHTML = data.Role;
                     // Dark Mode Check
-                    if (data.DarkMode == true) {
-                        console.log('Dark Mode ON');
+                    if (data.Misc.DarkMode == 1) {
+                        // Do if DarkMode is set
                         $('.loading').addClass('dark-layout');
                         navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({
                             class: 'ficon'
                         }));
 
                     } else {
-                        console.log("Dark Mode OFF");
+                        // Do if DarkMode isn't Set
                     }
                     // Dark Mode Set
                     $('.darkMode').on('click', function (e) {
-                        console.log("Data: "+data.DarkMode);
-                        var dark = data.DarkMode;
-                        dark = !dark;
-                        console.log("Dark: "+dark);
+                        console.log("Data: " + data.Misc.DarkMode);
+                        var dark = data.Misc.DarkMode;
+                        // Invert Darkmode Var
+                        dark ^= true;
+                        // Update DarkMode
                         var postData = {
-                            DarkMode: dark
+                            "Misc.DarkMode": dark
                         }
                         userDocRef.doc(user.uid).update(postData).then(function () {
                             console.log("Document successfully updated!");
@@ -123,12 +124,19 @@ $(function () {
                             // The document probably doesnt exists
                             console.error("Error updating document: ", error);
                         });
-
-
                     });
                 }
             });
         }
+    });
+
+    // logout
+    $('.logout').on('click', function (e) {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
     });
 
     // Main menu toggle should hide app menu

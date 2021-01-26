@@ -176,29 +176,43 @@ $(function () {
             var current = $(this)[0].id;
             if (current == "launch-chat") {
                 chatDetails.toggleClass('show');
+                $('.mail-date-time').html(fullDate);
                 //$('#pop-up-chat').modal('show');
                 // Close other open things
                 phoneDetails.removeClass('show');
             } else if (current == "launch-email") {
+                $('.mail-date-time').html(fullDate);
                 $('#compose-mail').modal('show');
                 // Close other open things
                 phoneDetails.removeClass('show');
                 chatDetails.removeClass('show');
             } else if (current == "launch-phone") {
+                $('.mail-date-time').html(fullDate);
                 phoneDetails.toggleClass('show');
                 // Close other open things
                 chatDetails.removeClass('show');
             } else if (current == "launch-reporting") {
+                $('.mail-date-time').html(fullDate);
                 phoneDetails.removeClass('show');
                 chatDetails.removeClass('show');
             }
         });
     }
 
+    // Current Date & Time
+    var Month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var dt = new Date(),
+        currentMonth = Month[dt.getMonth()],
+        currentDay = dt.getDay(),
+        currentYear = dt.getFullYear(),
+        time = dt.getHours() + ":" + dt.getMinutes();
+    // Shorten month to first 3 letters   
+    currentMonth = currentMonth.substr(0, 3);
+    var fullDate = currentDay + " " + currentMonth + ", " + currentYear + ", " + time
 
     // Firebase Collections
-    var user = firebase.auth().currentUser;
-    var db = firebase.firestore();
+    var user = firebase.auth().currentUser,
+        db = firebase.firestore();
     const userDocRef = db.collection('users');
 
     // listen for auth status changes

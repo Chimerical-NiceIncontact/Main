@@ -55,7 +55,7 @@ $(window).on('load', function () {
     var browserStateSecondaryChart;
     var browserStateWarningChart;
     var goalOverviewChart;
-    
+
     var currentUsersName = "";
     var currentUsersRole = "";
     var currentuserNameplate = $('.currentUsersName');
@@ -73,31 +73,85 @@ $(window).on('load', function () {
             db.collection("users").doc(user.uid).get().then(function (doc) {
                 if (doc.exists) {
                     // Declare Vars
-                    currentUsersName = doc.data().Name;
-                    currentUsersRole = doc.data().Role;
-                    
+                    var data = doc.data();
+                    var newSignIn = data.Misc.SignedIn;
+                    var signInCount = data.Misc.SignedInCount;
+                    currentUsersName = data.Name;
+                    currentUsersRole = data.Role;
+
                     currentuserNameplate.html(currentUsersName);
                     currentuserRoleplate.html(currentUsersRole);
+
+                    // On load Toast
+                    if (newSignIn == true) {
+                        setTimeout(function () {
+                            toastr['success'](
+                                'You have successfully logged in to Chimerical. Now you can start to explore!',
+                                '👋 Welcome ' + currentUsersName + '!', {
+                                    closeButton: true,
+                                    tapToDismiss: false
+                                }
+                            );
+                        }, 2000);
+                        newSignIn = false;
+
+                        var postData = {
+                            "Misc.SignedIn": false
+                        }
+
+                        db.collection('users').doc(user.uid).update(postData).then(function (e) {
+                            console.log("This Worked!");
+                        }).catch(function (error) {
+                            console.log("This Didnt: " + error.toString);
+                        });
+                    } else if (signInCount == 0) {
+                        var tourVar = new Shepherd.Tour({
+                            defaultStepOptions: {
+                                classes: 'shadow-md bg-purple-dark',
+                                scrollTo: false,
+                                cancelIcon: {
+                                    enabled: true
+                                }
+                            },
+                            useModalOverlay: true
+                        });
+                        setupTour(tourVar).start();
+
+                        function setupTour(tour) {
+                            tour.addStep({
+                                title: 'Lets Add Your Agent IDs',
+                                text: 'First, select this picture here and select "Edit Account" from the dropdown',
+                                attachTo: {
+                                    element: '.dropdown-user',
+                                    on: 'bottom'
+                                },
+                                buttons: [
+                                    {
+                                        action: tour.complete,
+                                        classes: 'btn btn-sm btn-primary btn-next',
+                                        text: 'Okay'
+                                    }
+                                ]
+                            });
+                            return tour;
+                        }
+                    }
                 }
             });
-
         }
     });
-    
-    
-    
-    console.log(currentUsersName);
-    
-    // On load Toast
-    setTimeout(function () {
-        toastr['success'](
-            'You have successfully logged in to Vuexy. Now you can start to explore!',
-            '👋 Welcome '+currentUsersName+'!', {
-                closeButton: true,
-                tapToDismiss: false
-            }
-        );
-    }, 2000);
+
+
+    //------------ Logout --------------------------
+    //----------------------------------------------
+    $('.logout').on('click', function (e) {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    });
+
 
     //------------ Statistics Bar Chart ------------
     //----------------------------------------------
