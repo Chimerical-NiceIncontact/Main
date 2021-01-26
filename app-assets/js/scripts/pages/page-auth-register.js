@@ -51,6 +51,79 @@ $(function () {
         var username = $('#register-username').val();
         var email = $('#register-email').val();
         var password = $('#register-password').val();
+        var avatarURL = "";
+
+        // NASA APOD
+        // Nasa API
+        var apod = {
+
+            randomDate: function (start, end) {
+                let date = new Date(
+                    start.getTime() + Math.random() *
+                    (end.getTime() - start.getTime())
+                );
+
+                let d = date.getDate();
+                let m = date.getMonth() + 1;
+                let y = date.getFullYear();
+
+                if (m < 10) {
+                    m = '0' + m;
+                }
+
+                if (d < 10) {
+                    d = '0' + d;
+                }
+
+                return `${y}-${m}-${d}`;
+            },
+
+
+            buildDOM: function (result) {
+                var count = result.explanation.length;
+                console.log(result);
+                if (count > 75) {
+                    var shorten = result.explanation.split("\.")[1];
+                }
+                avatarURL = result.hdurl;
+
+                /*
+                $('.user-avatar').hover(function () {
+                    $('#popover871274').addClass('show');
+                    $('#popover871274').fadeIn(100);
+                    $('.nasa-image-title').html(result.title);
+                    $('.nasa-image-body').html(shorten);
+                }, function() {
+                    $('#popover871274').fadeOut(500);
+                    //$('#popover871274').removeClass('show');
+                });
+                */
+
+            },
+
+            getRequest: function () {
+
+                let date = this.randomDate(new Date(1995, 5, 16), new Date());
+                let key = 'VWFQcVvwOZU3g1zGfUFJQ6HaIgKUKMZ2YA6kjwgT';
+                var url = `https://api.nasa.gov/planetary/apod?api_key=${key}&date=${date}`;
+                let ths = this;
+
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.send();
+
+                xhr.onload = function () {
+                    let result = JSON.parse(xhr.response);
+
+                    ths.buildDOM(result);
+                }
+            },
+
+            init: function () {
+                this.getRequest();
+            }
+        };
 
         // sign up the user
         auth.createUserWithEmailAndPassword(email, password).then(cred => {
@@ -63,7 +136,7 @@ $(function () {
                 Username: username,
                 Phone: "0000000000",
                 Status: "Inactive",
-                Avatar: "",
+                Avatar: avatarURL,
                 AgentID: {
                     "C35": "123456",
                     "C32": "123456",

@@ -182,7 +182,7 @@ $(function () {
                 phoneDetails.removeClass('show');
             } else if (current == "launch-email") {
                 $('.mail-date-time').html(fullDate);
-                $('#compose-mail').modal('show');
+                composeModal.modal('show');
                 // Close other open things
                 phoneDetails.removeClass('show');
                 chatDetails.removeClass('show');
