@@ -19,8 +19,6 @@ $(function () {
 
     //apod.getRequest();
 
-
-
     // Firebase Collections
     var user = firebase.auth().currentUser;
     var db = firebase.firestore();
@@ -40,6 +38,7 @@ $(function () {
                             $('.user-name')[x].innerHTML = data.Name;
                         }
                         $('.user-status')[0].innerHTML = data.Role;
+                        $('.round').attr('src', data.Avatar.avatarURL);
                     }
                     // User Info main Page
                     $('.user-fullname').val(data.Name);
@@ -48,7 +47,7 @@ $(function () {
                     $('#status').val(data.Status);
                     $('.user-role').val(data.Role);
                     $('.user-phone').val(data.Phone);
-                    $('.user-avatar').attr('src', data.Avatar);
+                    $('.user-avatar').attr('src', data.Avatar.avatarURL);
                     // Agent Id Info
                     $('.user-c37').val("To Be Added...");
                     $('.user-c32be').val("To Be Added...");
@@ -56,6 +55,21 @@ $(function () {
                     $('.user-c32').val(data.AgentID.C32);
                     $('.user-b32').val(data.AgentID.B32);
                     $('.user-b2').val(data.AgentID.B2);
+
+                    var count = data.Avatar.avatarDescription.length;
+                    if (count > 75) {
+                        var shorten = data.Avatar.avatarDescription.split("\.")[1];
+                    }
+
+                    $('.user-avatar').hover(function () {
+                        $('#popover871274').addClass('show');
+                        $('#popover871274').fadeIn(100);
+                        $('.nasa-image-title').html(data.Avatar.avatarTitle);
+                        $('.nasa-image-body').html(shorten);
+                    }, function () {
+                        $('#popover871274').fadeOut(500);
+                        //$('#popover871274').removeClass('show');
+                    });
 
                     // Shepherd Tour
                     if (signInCount == 0) {
@@ -125,6 +139,7 @@ $(function () {
                             }
                         }
                     });
+
                     // Once they are finished editing their agent, we tell em.
                     /*
                     if (data.Misc.SignedInCount == 1) {

@@ -162,6 +162,7 @@
                      // Set User's info
                      $('.user-name')[0].innerHTML = data.Name;
                      $('.user-status')[0].innerHTML = data.Role;
+                     $('.round').attr('src', data.Avatar.avatarURL);
 
                  }
              });

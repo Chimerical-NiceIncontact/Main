@@ -51,9 +51,10 @@ $(function () {
         var username = $('#register-username').val();
         var email = $('#register-email').val();
         var password = $('#register-password').val();
-        var avatarURL = "";
+        var avatarURL = "",
+            avatarTitle = "",
+            avatarDescription = "";
 
-        // NASA APOD
         // Nasa API
         var apod = {
 
@@ -86,6 +87,8 @@ $(function () {
                     var shorten = result.explanation.split("\.")[1];
                 }
                 avatarURL = result.hdurl;
+                avatarTitle = result.title;
+                avatarDescription = result.explanation;
 
                 /*
                 $('.user-avatar').hover(function () {
@@ -124,43 +127,51 @@ $(function () {
                 this.getRequest();
             }
         };
+        // Run NASA apod
+        apod.getRequest();
 
         // sign up the user
-        auth.createUserWithEmailAndPassword(email, password).then(cred => {
-            console.log(cred.user);
-            // Create user in firestore
-            db.collection('users').doc(cred.user.uid).set({
-                Name: fullname,
-                Email: email,
-                Role: "Signup",
-                Username: username,
-                Phone: "0000000000",
-                Status: "Inactive",
-                Avatar: avatarURL,
-                AgentID: {
-                    "C35": "123456",
-                    "C32": "123456",
-                    "B32": "123456",
-                    "B2": "123456"
-                },
-                Misc: {
-                    "DarkMode": 0,
-                    "SignedIn": false,
-                    "SignedInCount": 0
-                }
-            })
-            var userRef = db.collection('users').doc(user.uid).get().then(function (event) {
-                var data = doc.data();
-                console.log("if here and no error: " + data);
-            })
+        setTimeout(() => {
+            auth.createUserWithEmailAndPassword(email, password).then(cred => {
+                console.log(cred.user);
+                // Create user in firestore
+                db.collection('users').doc(cred.user.uid).set({
+                    Name: fullname,
+                    Email: email,
+                    Role: "Signup",
+                    Username: username,
+                    Phone: "0000000000",
+                    Status: "Inactive",
+                    Avatar: {
+                        "avatarURL": avatarURL,
+                        "avatarTitle": avatarTitle,
+                        "avatarDescription": avatarDescription
+                    },
+                    AgentID: {
+                        "C35": "123456",
+                        "C32": "123456",
+                        "B32": "123456",
+                        "B2": "123456"
+                    },
+                    Misc: {
+                        "DarkMode": 0,
+                        "SignedIn": false,
+                        "SignedInCount": 0
+                    }
+                })
+                var userRef = db.collection('users').doc(user.uid).get().then(function (event) {
+                    var data = doc.data();
+                    console.log("if here and no error: " + data);
+                })
 
-        }).catch(function (e) {
-            // On error, do popup to tell customer.
-            toastr['error'](e.toString(), 'Invalid Attempt', {
-                closeButton: true,
-                tapToDismiss: false,
-                progressBar: true
+            }).catch(function (e) {
+                // On error, do popup to tell customer.
+                toastr['error'](e.toString(), 'Invalid Attempt', {
+                    closeButton: true,
+                    tapToDismiss: false,
+                    progressBar: true
+                });
             });
-        });
+        }, 2000);
     });
 });

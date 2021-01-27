@@ -240,6 +240,7 @@ $(function () {
                     // Set User's info
                     $('.user-name')[0].innerHTML = data.Name;
                     $('.user-status')[0].innerHTML = data.Role;
+                    $('.round').attr('src', data.Avatar.avatarURL);
                     // Set Agent IDs
                     var c32 = doc.data().AgentID.C32;
                     var b32 = doc.data().AgentID.B32;
