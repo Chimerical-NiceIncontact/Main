@@ -141,6 +141,7 @@ $(function () {
         });
     }
 
+    /* Select 2 Drop down for CC and BCC Field
     if (emailCC.length) {
         emailCC.wrap('<div class="position-relative"></div>').select2({
             placeholder: 'Select value',
@@ -155,7 +156,8 @@ $(function () {
             }
         });
     }
-
+ 
+    
     if (emailBCC.length) {
         emailBCC.wrap('<div class="position-relative"></div>').select2({
             placeholder: 'Select value',
@@ -170,6 +172,7 @@ $(function () {
             }
         });
     }
+    */
 
     if (launchItem.length) {
         launchItem.on('click', function () {
