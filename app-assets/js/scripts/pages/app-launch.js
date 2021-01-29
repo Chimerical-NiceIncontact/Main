@@ -303,13 +303,17 @@ $(function () {
                     $("button.chat-launch-btn").on("click", function (e) {
                         //$('#pop-up-chat').modal('show');
                         var emailAdd = $("input.emailAdd").val();
-                        var firstName = $("input.firstName").val();
+                        var firstName = $("#first-name-chat-icon").val();
                         var contactReason = $("input.contactReason").val();
                         var agentId = $("#chatSelect option:selected").val();
-                        var chatSessionID = 'akxyV29RWFZzVkE3SEpuS0lsVWVORzhzbno2aXkzcHN0Y2ZldHVHam9qcC9uNjBVYXRkNFp5MTdkQT09';
+                        // Custom Chat Widget Stuff
+                        //var chatSessionID = 'akxyV29RWFZzVkE3SEpuS0lsVWVORzhzbno2aXkzcHN0Y2ZldHVHam9qcC9uNjBVYXRkNFp5MTdkQT09';
+                        
                         // Get Right URL
                         if (c32.localeCompare(agentId) === 0) {
-                            window.open("https://home-c32.nice-incontact.com/inContact/Manage/Scripts/Spawn.aspx?scriptName=ChimericalCorporation%5cChimericalClickToCall&bus_no=4596619&scriptId=84257682&skill_no=4020410&p1=" + firstName + "&p2=" + emailAdd + "&p3=" + agentId + "&p4=&p5=&Guid=06b1144c-fdc3-48ab-9064-a71a8b87bc8c");
+                            //console.log("Agent: "+ agentId + " First: "+firstName);
+                            window.open("https://home-c32.nice-incontact.com/incontact/chatclient/chatclient.aspx?poc=18308273-11cc-4a5e-9a2e-c702acc98dc1&bu=4596619&p1=" + firstName + "&p2=" + agentId + "&p3=&p4=&p5=&Guid=06b1144c-fdc3-48ab-9064-a71a8b87bc8c");
+                            
                         } else if (c35.localeCompare(agentId) === 0) {
                             window.open("https://home-c35.nice-incontact.com/incontact/chatclient/chatclient.aspx?poc=2c28d967-872c-4940-9fa4-89b3c6d181dd&bu=4600195&p1=" + firstName + "&p2=" + emailAdd + "&p3=" + agentId + "&p4=&p5=&Guid=06b1144c-fdc3-48ab-9064-a71a8b87bc8c");
                         } else if (b32.localeCompare(agentId) === 0) {
