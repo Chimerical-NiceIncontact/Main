@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Engagement Demo Portal</title>
+
+    <script>
+        /** Partner Specific AgentID and click-to-call phone number **
+
+This is to allow a partner would like to hard-code some values,
+thereby removing the need to enter your AgentID and phone number
+each time you access the page.
+
+************************************************************/
+
+        phoneNum = 6785754668;
+        agentID = 6733198;
+    </script>
+
+    <!-- Live chat script should go here-->
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/pc-custom-page.css">
+
+    <!-- BEGIN: CXone API -->
+    <script src="../../../app-assets/js/scripts/pages/pc-custom-page.js"></script>
+    <!-- END: CXone API -->
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="ChimericalHome.html">Chimerical Company</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+        </div>
+        <!-- End left side of the nav bar -->
+        <!-- Right side of the nav bar -->
+        <p class="text-white" style="padding-right:15px; padding-top:15px"><b>Reach Us Directly & Quickly </b></p>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit" action="phone">Click to Call</button>
+        </form>
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bus Unit</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="">B32</a>
+                <a class="dropdown-item" href="#">C32</a>
+                <a class="dropdown-item" href="#">B2</a>
+                <a class="dropdown-item" href="#">B2 Lab</a>
+            </div>
+        </div>
+        <!-- End right side elements -->
+    </nav>
+    <!-- End Navigation -->
+
+    <center>
+        <p>
+            <img onclick="buildURL('phone'); setTimeout(clearContext, 3000);" src="https://chimericalcorporation.com/be/top.png" alt="Phone" title="Click to Call" id="phoneImg">
+            <img src="https://chimericalcorporation.com/be/mid2.png" class="background-image">
+
+        </p>
+        <p>
+
+        <div class='wrapper'>
+            <form id='nameForm'>
+                <div class='form-uname'>
+
+                    <input id='agentField' type='text' maxlength='7' placeholder='Agent ID'></input>
+
+                    <a href="#" onclick="javascript:window.location='mailto:'+emailPOC+'?subject='+subject+'&body='+bodyVar" id="emailLink"></a>
+                    <a href="#" onclick="javascript:window.open(openURL, 'newwindow', 'width=500, height=500'); return false;" id="chatLink"></a>
+                    <a href="#" onclick="javascript:window.open(ctdURL, 'myframe', 'width=0, height=0'); return false;" id="phoneLink"></a>
+                </div>
+            </form>
+
+
+    </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <center>
+        <img onclick="showInboundPOC()" src="https://chimericalcorporation.com/cxone/assets/img/NICE-inContact_logo.png" alt="Inbound_POC" title="Get Inbound POC">
+    </center>
+
+    <center><i>Click to Dial: </i><input id='phoneField' type='text' maxlength='15' placeholder='Phone Number'></input>
+        <div>
+            <b>
+                <font color="009EDA">
+                    <p id='result'></p>
+        </div>
+        </font></b>
+        </div>
+    </center>
+
+    <a href="#" class="float" id="menu-share">
+        <i class="fa fa-share my-float"></i>
+    </a>
+    <ul>
+        <li><a href="https://twitter.com/Chimerical_Corp" target="_blank" id="menu-twitter">
+                <i class="fa fa-twitter my-float"></i>
+        </li>
+        </a>
+        <li><a href="https://www.facebook.com/Chimerical-Corp-CXone-102951727717843" target="_blank" id="menu-facebook">
+                <i class="fa fa-facebook my-float"></i>
+        </li>
+        </a>
+        <li><a href="https://api.whatsapp.com/send?phone=+14133620293" target="_blank" id="menu-whatsapp">
+                <i class="fa fa-whatsapp my-float"></i>
+        </li>
+        </a>
+
+
+    </ul>
+
+</body>
+<footer>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright <i>Development</i>:<br>
+        <p>If you'd like to reach us by email <a href="mailto:testemail@email.com"><b>Click Here</b></a></p>
+        <br> You are currently signed in as </br>
+        <a href="UserAccount.html"><b>Your Profile</b></a><br>
+        <a href="Signin.html"><b>Sign Out</b></a><br>
+    </div>
+</footer></html>

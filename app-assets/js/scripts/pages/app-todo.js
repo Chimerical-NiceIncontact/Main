@@ -97,7 +97,7 @@ $(function () {
                     $('.user-name')[0].innerHTML = data.Name;
                     $('.user-status')[0].innerHTML = data.Role;
                     $('.round').attr('src', data.Avatar.avatarURL);
-                    // Dark Mode Check
+                    /* Dark Mode Check
                     if (data.Misc.DarkMode == 1) {
                         // Do if DarkMode is set
                         $('.loading').addClass('dark-layout');
@@ -108,6 +108,7 @@ $(function () {
                     } else {
                         // Do if DarkMode isn't Set
                     }
+                    
                     // Dark Mode Set
                     $('.darkMode').on('click', function (e) {
                         console.log("Data: " + data.Misc.DarkMode);
@@ -126,6 +127,7 @@ $(function () {
                             console.error("Error updating document: ", error);
                         });
                     });
+                    */
                 }
             });
         }

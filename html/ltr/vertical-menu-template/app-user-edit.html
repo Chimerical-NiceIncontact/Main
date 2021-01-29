@@ -115,7 +115,7 @@
                     <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
                 </ul>
                 <ul class="nav navbar-nav bookmark-icons">
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-launch.html" data-toggle="tooltip" data-placement="top" title="Launch"><i class="ficon" data-feather="mail"></i></a></li>
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-launch.html" data-toggle="tooltip" data-placement="top" title="Launch"><i class="ficon" data-feather="upload-cloud"></i></a></li>
                     <!-- Calendar Removal
                     <li class="nav-item d-none d-lg-block"><a class="nav-link" href="app-calendar.html" data-toggle="tooltip" data-placement="top" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>
                     -->
@@ -287,15 +287,13 @@
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class=" nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span><span class="badge badge-light-warning badge-pill ml-auto mr-1"></span></a>
                     <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="dashboard-analytics.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Reporting">Reporting</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="dashboard-ecommerce.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">eCommerce</span></a>
+                        <li><a class="d-flex align-items-center" href="dashboard-reporting.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Reporting">Reporting</span></a>
                         </li>
                     </ul>
                 </li>
                 <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Apps &amp; Pages</span><i data-feather="more-horizontal"></i>
                 </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="app-launch.html"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Launch">Launch</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="app-launch.html"><i data-feather="upload-cloud"></i><span class="menu-title text-truncate" data-i18n="Launch">Launch</span></a>
                 </li>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="app-todo.html"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Todo">Todo</span></a>
                 </li>
@@ -307,8 +305,10 @@
                     <ul class="menu-content">
                         <li><a class="d-flex align-items-center" href="table-users.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
                         </li>
+                        <!--
                         <li><a class="d-flex align-items-center" href="app-user-view.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="View">View</span></a>
                         </li>
+                        -->
                         <li class="active"><a class="d-flex align-items-center" href="app-user-edit.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Edit</span></a>
                         </li>
                     </ul>
@@ -331,17 +331,17 @@
                     <div class="card">
                         <div class="card-body">
                             <ul class="nav nav-pills" role="tablist">
-                                <li class="nav-item">
+                                <li class="nav-item nav-account-information">
                                     <a class="nav-link d-flex align-items-center active" id="account-tab" data-toggle="tab" href="#account" aria-controls="account" role="tab" aria-selected="true">
                                         <i data-feather="user"></i><span class="d-none d-sm-block">Account</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item nav-bot-configuration">
                                     <a class="nav-link d-flex align-items-center" id="information-tab" data-toggle="tab" href="#information" aria-controls="information" role="tab" aria-selected="false">
                                         <i data-feather="info"></i><span class="d-none d-sm-block">Bot Configuration</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item nav-agent-id">
                                     <a class="nav-link d-flex align-items-center" id="social-tab" data-toggle="tab" href="#social" aria-controls="social" role="tab" aria-selected="false">
                                         <i data-feather="share-2"></i><span class="d-none d-sm-block agent-IDs">Agent ID's</span>
                                     </a>
@@ -352,7 +352,7 @@
                                 <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
                                     <!-- users edit media object start -->
                                     <div class="media mb-2">
-                                        <img alt="users avatar" src="" id="user-avatar" class="user-avatar users-avatar-shadow rounded mr-2 my-25 cursor-pointer" height="90" width="90" />
+                                        <img alt="users avatar" src="../../../app-assets/images/portrait/small/avatar.jpg" id="user-avatar" class="user-avatar users-avatar-shadow rounded mr-2 my-25 cursor-pointer" height="90" width="90" />
                                         <div class="media-body mt-50">
                                             <h4 class="user-name">Loading...</h4>
                                             <div class="col-12 d-flex mt-1 px-0">
@@ -419,7 +419,7 @@
                                             </div>
                                             <div class="col-12 d-flex flex-sm-row flex-column mt-2">
                                                 <button type="button" class="btn user-submit btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">Save Changes</button>
-                                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                                                <button type="button" class="btn btn-outline-secondary user-cancel">Cancel</button>
                                             </div>
                                         </div>
                                     </form>

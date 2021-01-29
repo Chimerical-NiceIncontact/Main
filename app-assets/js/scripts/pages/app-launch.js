@@ -226,6 +226,8 @@ $(function () {
                     var data = doc.data();
 
                     // Dark Mode Check
+
+                    /*
                     if (data.DarkMode == true) {
                         console.log('Dark Mode ON');
                         $('.loaded').addClass('dark-layout');
@@ -237,6 +239,8 @@ $(function () {
                         console.log("Dark Mode OFF");
                         $('.loaded').addClass('light-layout');
                     }
+                    */
+
                     // Set User's info
                     $('.user-name')[0].innerHTML = data.Name;
                     $('.user-status')[0].innerHTML = data.Role;
@@ -308,13 +312,9 @@ $(function () {
                         var chatSessionID = 'akxyV29RWFZzVkE3SEpuS0lsVWVORzhzbno2aXkzcHN0Y2ZldHVHam9qcC9uNjBVYXRkNFp5MTdkQT09';
                         // Get Right URL
                         if (c32.localeCompare(agentId) === 0) {
-                            console.log("You chose C32");
-                            //createChatSessionC32();
-                            //endChatSession(chatSessionID);
-                            //window.open("https://home-c32.nice-incontact.com/inContact/Manage/Scripts/Spawn.aspx?scriptName=ChimericalCorporation%5cChimericalClickToCall&bus_no=4596619&scriptId=84257682&skill_no=4020410&p1=" + firstName + "&p2=" + emailAdd + "&p3=" + agentId + "&p4=&p5=&Guid=06b1144c-fdc3-48ab-9064-a71a8b87bc8c");
+                            window.open("https://home-c32.nice-incontact.com/inContact/Manage/Scripts/Spawn.aspx?scriptName=ChimericalCorporation%5cChimericalClickToCall&bus_no=4596619&scriptId=84257682&skill_no=4020410&p1=" + firstName + "&p2=" + emailAdd + "&p3=" + agentId + "&p4=&p5=&Guid=06b1144c-fdc3-48ab-9064-a71a8b87bc8c");
                         } else if (c35.localeCompare(agentId) === 0) {
-                            console.log("You chose C35");
-                            //window.open("https://home-c35.nice-incontact.com/incontact/chatclient/chatclient.aspx?poc=2c28d967-872c-4940-9fa4-89b3c6d181dd&bu=4600195&p1=" + firstName + "&p2=" + emailAdd + "&p3=" + agentId + "&p4=&p5=&Guid=06b1144c-fdc3-48ab-9064-a71a8b87bc8c");
+                            window.open("https://home-c35.nice-incontact.com/incontact/chatclient/chatclient.aspx?poc=2c28d967-872c-4940-9fa4-89b3c6d181dd&bu=4600195&p1=" + firstName + "&p2=" + emailAdd + "&p3=" + agentId + "&p4=&p5=&Guid=06b1144c-fdc3-48ab-9064-a71a8b87bc8c");
                         } else if (b32.localeCompare(agentId) === 0) {
                             console.log("You chose B32");
                         } else if (b2.localeCompare(agentId) === 0) {
@@ -323,12 +323,48 @@ $(function () {
                         console.log("Chosen Option: " + agentId);
                     });
 
-
-
-
                     $("button.launch-refresh-button").on("click", function (e) {
                         location.reload();
                     });
+                    
+                    var signInCount = data.Misc.SignedInCount;
+                    // Setup Tour
+                    if (signInCount == 0) { 
+                        var tourVar = new Shepherd.Tour({
+                            defaultStepOptions: {
+                                classes: 'shadow-md bg-purple-dark',
+                                scrollTo: false,
+                                cancelIcon: {
+                                    enabled: true
+                                }
+                            },
+                            useModalOverlay: true
+                        });
+                        setupTour(tourVar).start();
+
+                        function setupTour(tour) {
+                            tour.addStep({
+                                title: 'Lets Add Your Agent IDs',
+                                text: 'First, lets have you go to your account so you can add your Agent IDs in.  Click here and select "View Account"',
+                                attachTo: {
+                                    element: '.dropdown-user',
+                                    on: 'bottom'
+                                },
+                                buttons: [
+                                    {
+                                        action: tour.next,
+                                        classes: 'btn btn-sm btn-primary btn-next',
+                                        text: 'Okay'
+                                    }
+                                ]
+                            });
+                            return tour;
+                        }
+                    }
+
+                    // Darkmode Memorialization
+
+                    /*
                     $('.darkMode').on('click', function (e) {
                         console.log("clicked");
                         var dark = data.DarkMode;
@@ -346,6 +382,7 @@ $(function () {
 
 
                     });
+                    */
 
                 };
             });
@@ -353,7 +390,7 @@ $(function () {
     });
 
 
-
+    /* -------- Set Dark Mode Cookie -----------
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -387,6 +424,7 @@ $(function () {
             }
         }
     }
+    */
 
     // Create chat session
     function createChatSessionC32() {
@@ -420,6 +458,7 @@ $(function () {
             }
         });
     }
+    
     //akxyV29RWFZzVkE3SEpuS0lsVWVORzhzbno2aXkzcHN0Y2ZldHVHam9qcC9uNjBVYXRkNFp5MTdkQT09
     function endChatSession(chatSessionId) {
         var baseURI = "https://api-c32.nice-incontact.com/incontactapi/";

@@ -138,7 +138,7 @@ $(function () {
                 db.collection('users').doc(cred.user.uid).set({
                     Name: fullname,
                     Email: email,
-                    Role: "Signup",
+                    Role: "Signing up",
                     Username: username,
                     Phone: "0000000000",
                     Status: "Inactive",
@@ -155,14 +155,15 @@ $(function () {
                     },
                     Misc: {
                         "DarkMode": 0,
-                        "SignedIn": false,
+                        "SignedIn": true,
                         "SignedInCount": 0
                     }
                 })
-                var userRef = db.collection('users').doc(user.uid).get().then(function (event) {
-                    var data = doc.data();
-                    console.log("if here and no error: " + data);
-                })
+                // Login
+                setTimeout(() => {
+                    window.location.href = "app-launch.html";
+                },1000);
+                
 
             }).catch(function (e) {
                 // On error, do popup to tell customer.

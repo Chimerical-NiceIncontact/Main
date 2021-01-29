@@ -58,7 +58,7 @@ $(function () {
 
                     var count = data.Avatar.avatarDescription.length;
                     if (count > 75) {
-                        var shorten = data.Avatar.avatarDescription.split("\.")[1];
+                        var shorten = data.Avatar.avatarDescription.split("\.")[0]+".";
                     }
                     $('.avatar-image').attr('src', data.Avatar.avatarURL);
                     $('.round').attr('src', data.Avatar.avatarURL);
@@ -72,7 +72,7 @@ $(function () {
                         //$('#popover871274').removeClass('show');
                     });
 
-                    if (signInCount == 0) {
+                    if (signInCount == 0) { 
                         var tourVar = new Shepherd.Tour({
                             defaultStepOptions: {
                                 classes: 'shadow-md bg-purple-dark',

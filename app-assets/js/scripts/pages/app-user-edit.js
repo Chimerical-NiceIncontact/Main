@@ -55,6 +55,11 @@ $(function () {
                     $('.user-c32').val(data.AgentID.C32);
                     $('.user-b32').val(data.AgentID.B32);
                     $('.user-b2').val(data.AgentID.B2);
+                    // User Permissions
+                    if (data.Role != "Administrator"){
+                        $('.user-role').attr("disabled", true);
+                        $('.user-status').attr("disabled", true);
+                    }
 
                     var count = data.Avatar.avatarDescription.length;
                     if (count > 75) {
@@ -89,9 +94,9 @@ $(function () {
                         function setupTour(tour) {
                             tour.addStep({
                                 title: 'Lets Add Your Agent IDs',
-                                text: 'Next, press "Edit" so that we can go ahead and add your Agent IDs',
+                                text: 'Next, select this tab so we can begin inputing your Agent Ids.',
                                 attachTo: {
-                                    element: '.agent-IDs',
+                                    element: '.nav-agent-id',
                                     on: 'bottom'
                                 },
                                 buttons: [
@@ -246,6 +251,10 @@ $(function () {
                         window[$(this).attr("name")] = true;
                         console.log($(this).attr("name"));
                     });
+                    
+                    $('.user-cancel').click(function () {
+                        location.href= "app-user-view.html";
+                    });
 
 
                     // Upload stuff to db
@@ -270,7 +279,7 @@ $(function () {
                                 Name: changedName ? changedName : null,
                                 Email: changedEmail ? changedEmail : null,
                                 Phone: changedPhone ? changedPhone : null,
-                                Role: changedRole ? changedRole : null,
+                                Role: "Sales Engineer",
                                 Status: changedStatus ? changedStatus : null,
                                 Username: changedUsername ? changedUsername : null,
                                 AgentID: {
@@ -310,6 +319,9 @@ $(function () {
                                         }
                                     );
                                 }, 2000);
+                                setTimeout(()=> {
+                                    location.reload();
+                                }, 2300);
                             } else {
                                 console.log("Document successfully updated!");
                                 //console.log(postData);

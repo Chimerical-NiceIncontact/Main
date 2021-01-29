@@ -60,6 +60,7 @@ $(window).on('load', function () {
     var currentUsersRole = "";
     var currentuserNameplate = $('.currentUsersName');
     var currentuserRoleplate = $('.currentUsersRole');
+    var currentuserAvatar = $('.user-avatar');
 
     //----------- Firebase Collections -------------
     //----------------------------------------------
@@ -81,6 +82,7 @@ $(window).on('load', function () {
 
                     currentuserNameplate.html(currentUsersName);
                     currentuserRoleplate.html(currentUsersRole);
+                    currentuserAvatar.attr('src', data.Avatar.avatarURL);
 
                     // On load Toast
                     if (newSignIn == true) {
