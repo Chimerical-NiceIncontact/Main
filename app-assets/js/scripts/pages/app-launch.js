@@ -224,10 +224,7 @@ $(function () {
             db.collection("users").doc(user.uid).get().then(function (doc) {
                 if (doc.exists) {
                     var data = doc.data();
-                    console.log($("#launch-phone-select option:selected").text());
-
                     // Dark Mode Check
-
                     /*
                     if (data.DarkMode == true) {
                         console.log('Dark Mode ON');
@@ -241,7 +238,6 @@ $(function () {
                         $('.loaded').addClass('light-layout');
                     }
                     */
-
                     // Set User's info
                     $('.user-name')[0].innerHTML = data.Name;
                     $('.user-status')[0].innerHTML = data.Role;
@@ -280,7 +276,7 @@ $(function () {
                             console.log("Launched C32");
                         } else if (b32.localeCompare(agentId) === 0) {
                             $(function () {
-                                $('#hiddenPage').load("https://home-b32.nice-incontact.com/inContact/Manage/Scripts/Spawn.aspx?scriptName=ChimericalCorporation%5cChimericalClickToCall&bus_no=4597359&scriptId=84182749&skill_no=4134464&p1=" + firstName + "&p2=" + phoneNum + "&p3=" + agentId + "&p4=&p5=&Guid=b59f7304-949d-4f2f-bb86-359e7e24380e");
+                                $('#hiddenPage').load("https://home-b32.nice-incontact.com/inContact/Manage/Scripts/Spawn.aspx?scriptName=ChimericalCorporation%5cChimericalClickToCall&bus_no=4597359&scriptId=84182749&skill_no=4134464&p1=" + firstName + "&p2=" + phoneNum + "&p3=" + agentId + "&p4=now&p5=&Guid=b59f7304-949d-4f2f-bb86-359e7e24380e");
                                 toastr['success']('Launched B32', 'Script Launched', {
                                     closeButton: true,
                                     tapToDismiss: false,
