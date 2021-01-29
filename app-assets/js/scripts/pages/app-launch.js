@@ -224,6 +224,7 @@ $(function () {
             db.collection("users").doc(user.uid).get().then(function (doc) {
                 if (doc.exists) {
                     var data = doc.data();
+                    console.log($("#launch-phone-select option:selected").text());
 
                     // Dark Mode Check
 
