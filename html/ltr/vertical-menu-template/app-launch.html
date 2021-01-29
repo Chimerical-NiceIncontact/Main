@@ -890,9 +890,10 @@
                 chiMessage = $('.ql-editor p')[0].innerHTML,
                 chiSubject = $('#emailSubject').val(),
                 chiTo = $('#emailTo').val(),
-                chiCC = $('#emailCC').val();
+                chiCC = $('#emailCC').val(),
+                chiBCC = $('#emailBCC').val();
             console.log(chiMessage);
-            document.location.href = "mailto:" + chiTo + "?subject=" + encodeURIComponent(chiSubject) + "&body=" + encodeURIComponent(chiMessage) + "&cc=" + chiCC + "&bcc=";
+            document.location.href = "mailto:" + chiTo + "?subject=" + encodeURIComponent(chiSubject) + "&body=" + encodeURIComponent(chiMessage) + "&cc=" + chiCC + "&bcc=" + chiBCC;
             toastr['success']('Launched Email', 'Opened Outlook', {
                 closeButton: true,
                 tapToDismiss: false,
