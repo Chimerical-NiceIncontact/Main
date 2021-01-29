@@ -893,7 +893,7 @@
                 chiCC = $('#emailCC').val(),
                 chiBCC = $('#emailBCC').val();
             console.log(chiMessage);
-            document.location.href = "mailto:" + chiTo + "?subject=" + encodeURIComponent(chiSubject) + "&body=" + encodeURIComponent(chiMessage) + "&cc=" + chiCC + "&bcc=" + chiBCC;
+            document.location.href = "mailto:" + chiTo + "?subject=" + encodeURIComponent(chiSubject) + "&body=" + encodeURIComponent(chiMessage) + "&cc=" + chiCC;
             toastr['success']('Launched Email', 'Opened Outlook', {
                 closeButton: true,
                 tapToDismiss: false,
