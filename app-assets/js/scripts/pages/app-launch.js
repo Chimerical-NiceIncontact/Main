@@ -301,7 +301,7 @@ $(function () {
                     });
                     // Chat Submit Actions
                     $("button.chat-launch-btn").on("click", function (e) {
-                        $('#pop-up-chat').modal('show');
+                        //$('#pop-up-chat').modal('show');
                         var emailAdd = $("input.emailAdd").val();
                         var firstName = $("input.firstName").val();
                         var contactReason = $("input.contactReason").val();
