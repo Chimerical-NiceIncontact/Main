@@ -138,8 +138,6 @@
                  };
 
                  // POST
-
-
                  userDocRef.doc(className).update(postData).then(function () {
                      console.log("Document successfully updated!");
                      //console.log(postData);
