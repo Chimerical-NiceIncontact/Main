@@ -318,6 +318,9 @@ $(function () {
                             
                         } else if (c35.localeCompare(agentId) === 0) {
                             window.open("https://home-c35.nice-incontact.com/incontact/chatclient/chatclient.aspx?poc=2c28d967-872c-4940-9fa4-89b3c6d181dd&bu=4600195&p1=" + firstName + "&p2=" + emailAdd + "&p3=" + agentId + "&p4=&p5=&Guid=06b1144c-fdc3-48ab-9064-a71a8b87bc8c");
+                            setTimeout(() => {
+                                location.reload();
+                            }, 1000);
                         } else if (b32.localeCompare(agentId) === 0) {
                             console.log("You chose B32");
                         } else if (b2.localeCompare(agentId) === 0) {

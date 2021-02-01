@@ -29,6 +29,16 @@
  $(document).ready(function () {
      "use strict"
 
+     function searchTable() {
+         var input = $('#user-table-search'),
+             filter = input.val().toUpperCase(),
+             table = $('.table-user-list'), 
+             tr = table.element("tr"), 
+             td, i, txtValue;
+        
+         
+     }
+     
      var newUserCheck = false;
 
      $("form.add-new-record").on("change", ":input", function (e) {

@@ -247,6 +247,11 @@
                                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                             </svg>Add New Record</span></button> </div>
+                                <div class="d-flex justify-content-between align-items-center mx-0">
+                                    
+                                        <div id="user-table-search-div" class="dataTables_filter"><input id="user-table-search" type="search" class="form-control" placeholder="Search..." aria-controls="DataTables_Table_0" onkeyup="searchTable()"></div>
+                                  
+                                </div>
                             </div>
                             <div class="table-responsive">
 
@@ -393,6 +398,26 @@
                 });
             }
         })
+        
+        function searchTable() {
+         var input = document.getElementById("user-table-search"),
+             filter = input.value.toUpperCase(),
+             table = document.getElementsByClassName("table-user-list")[0], 
+             tr = table.getElementsByTagName("tr"), 
+             td, i, txtValue;
+            console.log(filter);
+         for (i = 0; i < tr.length; i++) {
+             td = tr[i].getElementsByTagName("td")[0];
+             if (td) {
+                 txtValue = td.textContent || td.innerText;
+                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                     tr[i].style.display = "";
+                 } else {
+                     tr[i].style.display = "none";
+                 }
+             }
+         }
+     }
     </script>
 </body>
 <!-- END: Body--></html>

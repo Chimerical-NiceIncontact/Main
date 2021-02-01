@@ -97,6 +97,7 @@ $(function () {
                     $('.user-name')[0].innerHTML = data.Name;
                     $('.user-status')[0].innerHTML = data.Role;
                     $('.round').attr('src', data.Avatar.avatarURL);
+                    
                     /* Dark Mode Check
                     if (data.Misc.DarkMode == 1) {
                         // Do if DarkMode is set
