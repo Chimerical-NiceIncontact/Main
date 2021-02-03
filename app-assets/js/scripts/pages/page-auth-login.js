@@ -51,7 +51,26 @@ $(function () {
             .then(cred => {
                 // On Successfull login, goto index.html
                 console.log("Logged In: " + cred);
-                window.location.href = "app-launch.html";
+                var user = firebase.auth().currentUser,
+                    db = firebase.firestore();
+                db.collection('users').doc(user.uid).get().then(function (doc) {
+                    if (doc.data().Status != "Active") {
+                        toastr['warning']("Your account has not yet been activated.  If you believe this is in error, please reach out to your direct supervisor.", 'User Not Active', {
+                            closeButton: true,
+                            tapToDismiss: false,
+                            progressBar: true
+                        });
+                        firebase.auth().signOut().then(() => {
+                            // Sign-out successfull
+                            console.log("Logged out successfully");
+                        }).catch((error) => {
+                            // An Error happened
+                        });
+                    } else {
+                        window.location.href = "app-launch.html"; 
+                    }
+                });
+
             }).catch((e) => {
                 // On error, do popup to tell customer.
                 toastr['error'](e.toString(), 'Invalid Attempt', {

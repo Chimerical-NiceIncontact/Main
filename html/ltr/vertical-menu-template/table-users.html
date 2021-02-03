@@ -255,13 +255,13 @@
                             </div>
                             <div class="table-responsive">
 
-                                <table class="table table-hover">
+                                <table class="table table-hover " id="user-table">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Status</th>
+                                            <th id="user-table-name">Name<i data-feather='chevron-down'></i></th>
+                                            <th id="user-table-email">Email</th>
+                                            <th id="user-table-role">Role</th>
+                                            <th id="user-table-status">Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -405,7 +405,6 @@
              table = document.getElementsByClassName("table-user-list")[0], 
              tr = table.getElementsByTagName("tr"), 
              td, i, txtValue;
-            console.log(filter);
          for (i = 0; i < tr.length; i++) {
              td = tr[i].getElementsByTagName("td")[0];
              if (td) {

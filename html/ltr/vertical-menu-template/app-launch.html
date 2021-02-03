@@ -95,6 +95,21 @@
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.
+                var db = firebase.firestore();
+                const userDocRef = db.collection('users').doc(user.uid);
+                userDocRef.get().then(function (doc) {
+                    var data = doc.data();
+                    if (data.Status != "Active"){
+                        console.log("You are an inactive user");
+                        firebase.auth().signOut().then(() => {
+                            // Sign-out successfull
+                        }).catch((error) => {
+                            // An Error happened
+                        });
+                    } else {
+                        console.log("You are an active user");
+                    }
+                });
                 console.log("User Signed In");
             } else {
                 // No user is signed in.
@@ -452,7 +467,7 @@
                                                                                 <circle cx="12" cy="7" r="4"></circle>
                                                                             </svg></span>
                                                                     </div>
-                                                                    <input type="text" id="first-name-icon" class="form-control" name="fname-icon" placeholder="First Name">
+                                                                    <input type="text" id="first-name-icon" class="form-control" name="fname-icon" placeholder="First Name" pattern="^\S+$">
                                                                 </div>
                                                             </div>
                                                         </div>
