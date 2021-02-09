@@ -30,6 +30,10 @@ $(function () {
             db.collection("users").doc(user.uid).get().then(function (doc) {
                 if (doc.exists) {
                     var data = doc.data();
+                    var tempURL = "",
+                        tempTitle = "",
+                        tempDesc = "",
+                        tempChange = false;
                     var signInCount = data.Misc.SignedInCount;
                     var x = "";
                     // Top right
@@ -56,21 +60,21 @@ $(function () {
                     $('.user-b32').val(data.AgentID.B32);
                     $('.user-b2').val(data.AgentID.B2);
                     // User Permissions
-                    if (data.Role != "Administrator"){
+                    if (data.Role != "Administrator") {
                         $('.user-role').attr("disabled", true);
                         $('.user-status').attr("disabled", true);
                     }
 
                     var count = data.Avatar.avatarDescription.length;
                     if (count > 75) {
-                        var shorten = data.Avatar.avatarDescription.split("\.")[1];
+                        var shorten = data.Avatar.avatarDescription.split("\.")[0];
                     }
 
                     $('.user-avatar').hover(function () {
                         $('#popover871274').addClass('show');
                         $('#popover871274').fadeIn(100);
                         $('.nasa-image-title').html(data.Avatar.avatarTitle);
-                        $('.nasa-image-body').html(shorten);
+                        $('.nasa-image-body').html(data.Avatar.avatarDescription);
                     }, function () {
                         $('#popover871274').fadeOut(500);
                         //$('#popover871274').removeClass('show');
@@ -145,24 +149,6 @@ $(function () {
                         }
                     });
 
-                    // Once they are finished editing their agent, we tell em.
-                    /*
-                    if (data.Misc.SignedInCount == 1) {
-                        setTimeout(function () {
-                            toastr['success'](
-                                'You are all ready to go!',
-                                'Congrats!', {
-                                    closeButton: true,
-                                    tapToDismiss: false,
-                                    positionClass: "toast-bottom-center"
-                                }
-                            );
-                        }, 2000);
-                    } else {
-
-                    }
-                    */
-
                     // Nasa API
                     var apod = {
 
@@ -195,18 +181,9 @@ $(function () {
                                 var shorten = result.explanation.split("\.")[1];
                             }
                             $('.user-avatar').attr('src', result.hdurl);
-
-                            /*
-                            $('.user-avatar').hover(function () {
-                                $('#popover871274').addClass('show');
-                                $('#popover871274').fadeIn(100);
-                                $('.nasa-image-title').html(result.title);
-                                $('.nasa-image-body').html(shorten);
-                            }, function() {
-                                $('#popover871274').fadeOut(500);
-                                //$('#popover871274').removeClass('show');
-                            });
-                            */
+                            tempURL = result.hdurl;
+                            tempDesc = shorten+'.';
+                            tempTitle = result.title;
 
                         },
 
@@ -236,6 +213,22 @@ $(function () {
 
                     $('#change-picture').on('click', function (e) {
                         apod.getRequest();
+                        setTimeout(() => {
+                            //console.log(tempURL);
+                            //console.log(tempDesc);
+                            //console.log(tempTitle);
+                            tempChange = true;
+                            toastr['success'](
+                                'Heres Your New Picture! Make sure to save changes when you find a picture you like!',
+                                'Have Fun!', {
+                                    closeButton: true,
+                                    tapToDismiss: false,
+                                    positionClass: "toast-top-right"
+                                }
+                            );
+
+                        }, 1000);
+
 
                     });
                     // Initialize the post
@@ -251,9 +244,9 @@ $(function () {
                         window[$(this).attr("name")] = true;
                         console.log($(this).attr("name"));
                     });
-                    
+
                     $('.user-cancel').click(function () {
-                        location.href= "app-user-view.html";
+                        location.href = "app-user-view.html";
                     });
 
 
@@ -290,6 +283,26 @@ $(function () {
                                 },
                                 "Misc.SignedInCount": 1
                             };
+                        } else if (tempChange == true) {
+                            var postData = {
+                                Name: changedName ? changedName : null,
+                                Email: changedEmail ? changedEmail : null,
+                                Phone: changedPhone ? changedPhone : null,
+                                Role: changedRole ? changedRole : null,
+                                Status: changedStatus ? changedStatus : null,
+                                Username: changedUsername ? changedUsername : null,
+                                AgentID: {
+                                    C35: changedAgentC35 ? changedAgentC35 : null,
+                                    C32: changedAgentC32 ? changedAgentC32 : null,
+                                    B32: changedAgentB32 ? changedAgentB32 : null,
+                                    B2: changedAgentB2 ? changedAgentB2 : null
+                                },
+                                Avatar: {
+                                    avatarDescription: tempDesc,
+                                    avatarTitle: tempTitle,
+                                    avatarURL: tempURL
+                                }
+                            };
                         } else {
                             var postData = {
                                 Name: changedName ? changedName : null,
@@ -303,6 +316,11 @@ $(function () {
                                     C32: changedAgentC32 ? changedAgentC32 : null,
                                     B32: changedAgentB32 ? changedAgentB32 : null,
                                     B2: changedAgentB2 ? changedAgentB2 : null
+                                },
+                                Avatar: {
+                                    avatarDescription: tempDesc,
+                                    avatarTitle: tempTitle,
+                                    avatarURL: tempURL
                                 }
                             };
                         }
@@ -319,7 +337,7 @@ $(function () {
                                         }
                                     );
                                 }, 2000);
-                                setTimeout(()=> {
+                                setTimeout(() => {
                                     location.reload();
                                 }, 2300);
                             } else {

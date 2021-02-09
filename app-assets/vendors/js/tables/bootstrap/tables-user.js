@@ -14,7 +14,7 @@
          } else if (doc.data().Status == "Test") {
              var chipColor = "cxone";
          }
-         $('.table-user-list')[0].innerHTML += '<tr class="' + doc.id + '"><td><img src="../../../app-assets/images/icons/user.svg" class="mr-75" height="20" width="20" alt="Angular" /><span class="font-weight-bold">' + doc.data().Name + '</span></td><td>' + doc.data().Email + '</td><td>' + doc.data().Role + '</td><td><span class="badge badge-pill badge-light-' + chipColor + ' mr-1">' + doc.data().Status + '</span></td><td><div class="dropdown"><button type="button" class="btn btn-sm dropdown-toggle hide-arrow edit-buttons" data-toggle="dropdown"><i data-feather="more-vertical"></i></button><div class="dropdown-menu"><a class="dropdown-item dropdown-edit"><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a><a class="dropdown-item" href="javascript:void(0);"><i data-feather="trash" class="mr-50"></i><span>Delete</span></a></div></div></td></tr>';
+         $('.table-user-list')[0].innerHTML += '<tr class="' + doc.id + '"><td><img src="../../../app-assets/images/icons/user.svg" class="mr-75" height="20" width="20" alt="Angular" /><span class="font-weight-bold">' + doc.data().Name + '</span></td><td>' + doc.data().Email + '</td><td>' + doc.data().Role + '</td><td><span class="badge badge-pill badge-light-' + chipColor + ' mr-1">' + doc.data().Status + '</span></td><td><div class="dropdown"><button type="button" class="btn btn-sm dropdown-toggle hide-arrow edit-buttons" data-toggle="dropdown"><i data-feather="more-vertical"></i></button><div class="dropdown-menu"><a class="dropdown-item dropdown-edit"><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a><a class="dropdown-item dropdown-delete" href="javascript:void(0);"><i data-feather="trash" class="mr-50"></i><span>Delete</span></a></div></div></td></tr>';
      })
      feather.replace();
      $.holdReady(false);
@@ -29,6 +29,7 @@
  $(document).ready(function () {
      "use strict"
 
+     // Filter by column header
      const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
      const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
@@ -36,13 +37,16 @@
      )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 
      // do the work...
+
      document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
          const table = th.closest('table');
          Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
              .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
              .forEach(tr => table.appendChild(tr));
+
      })));
 
+     // Add New User
      var newUserCheck = false;
 
      $("form.add-new-record").on("change", ":input", function (e) {
@@ -164,6 +168,22 @@
 
          }
          newUserCheck = true;
+     });
+
+     $('.dropdown-delete').on("click", function (e) {
+         e.stopPropagation();
+         var className = $(this).closest('td').parent('tr').attr("class");
+         db.collection("users").doc(className).get().then(function (doc) {
+             var data = doc.data();
+             //var user = firebase.auth().
+
+         });
+         console.log("Delete button pressed");
+         $('#acceptance-button').modal('show');
+         $(".btn-accept").click(function () {
+
+         })
+
      });
 
 

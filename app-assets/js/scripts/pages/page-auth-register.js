@@ -160,9 +160,14 @@ $(function () {
                     }
                 })
                 // Login
+                toastr['success']('You have successfully completed the sign-up process!  Please wait till your leader activates your account before continuing.', 'Sign-Up Complete', {
+                    closeButton: true,
+                    tapToDismiss: false,
+                    progressBar: true
+                });
                 setTimeout(() => {
-                    window.location.href = "app-launch.html";
-                },1000);
+                    window.location.href = "page-auth-login-v1.html";
+                },2000);
                 
 
             }).catch(function (e) {
