@@ -8,31 +8,61 @@
 ==========================================================================================*/
 
 $(function () {
-  'use strict';
-  var searchbar = $('#searchbar'),
-    search_content = $('.kb-search-content-info .kb-search-content'),
-    no_result = $('.kb-search-content-info .no-result');
+    'use strict';
+    var searchbar = $('#searchbar'),
+        search_content = $('.kb-search-content-info .kb-search-content'),
+        no_result = $('.kb-search-content-info .no-result');
 
-  // Filter for knowledge base and category page
-  searchbar.on('keyup', function () {
-    var value = $(this).val().toLowerCase();
-    if (value != '') {
-      search_content.filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-      });
-      var search_row = $('.kb-search-content-info .kb-search-content:visible').length;
+    // Filter for knowledge base and category page
+    searchbar.on('keyup', function () {
+        var value = $(this).val().toLowerCase();
+        if (value != '') {
+            search_content.filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+            var search_row = $('.kb-search-content-info .kb-search-content:visible').length;
 
-      //Check if search-content has row or not
-      if (search_row == 0) {
-        no_result.removeClass('no-items');
-      } else {
-        if (!no_result.hasClass('no-items')) {
-          no_result.addClass('no-items');
+            //Check if search-content has row or not
+            if (search_row == 0) {
+                no_result.removeClass('no-items');
+            } else {
+                if (!no_result.hasClass('no-items')) {
+                    no_result.addClass('no-items');
+                }
+            }
+        } else {
+            // If filter box is empty
+            search_content.show();
         }
-      }
-    } else {
-      // If filter box is empty
-      search_content.show();
-    }
-  });
+    });
+
+    // Firebase Collections
+    var user = firebase.auth().currentUser;
+    var db = firebase.firestore();
+    const userDocRef = db.collection('users');
+
+    // listen for auth status changes
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            db.collection("users").doc(user.uid).get().then(function (doc) {
+                if (doc.exists) {
+                    var data = doc.data();
+                    // Add User Information
+                    $('.user-name').html(data.Name);
+                    $('.user-status').html(data.Role);
+                    $('.user-avatar').attr('src', data.Avatar.avatarURL);
+                }
+            });
+
+            // logout
+            $('.logout').on('click', function (e) {
+                firebase.auth().signOut().then(() => {
+                    // Sign-out successful.
+                }).catch((error) => {
+                    // An error happened.
+                });
+            });
+        }
+    });
+
 });
